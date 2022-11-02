@@ -18,7 +18,7 @@ async function signup() {
         email: document.getElementById("email").value,
     }
 
-    const response = await fetch(`http://127.0.0.1:8000`,{
+    const response = await fetch(`http://127.0.0.1:8000/users/`,{
         headers:{
             'Content-type':'application/json',
         },
@@ -59,7 +59,7 @@ async function Login() {
     const password = document.getElementById("signin_password").value;
 
     const response = await fetch(
-        "http://127.0.0.1:8000/api/token/",
+        "http://127.0.0.1:8000/users/api/token/",
         { 
             headers: {
                 'content-type': 'application/json'
