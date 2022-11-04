@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Account </title>
-  <link rel="stylesheet" href="./static/style/css/style.css">
+  <link rel="stylesheet" href="./static/style/css/user_style.css">
 
 </head>
 <body>
@@ -20,14 +20,14 @@
       <div class="container a-container " id="a-container">
         <form class="form signup" id="a-form" >
           <h2 class="form_title title">회원가입</h2>
-          <input id="email" class="form__input" onkeyup="enterSignup()" name="email" type="email" placeholder="Email"> 
-          <input id="nickname" class="form__input" onkeyup="enterSignup()" name="nickname" type="text" placeholder="Nickname">
+          <input id="email" class="form__input" onkeyup="enterSignup()" name="email" type="email" placeholder="Email" style= "color:#7A848C;" > 
+          <input id="nickname" class="form__input" onkeyup="enterSignup()" name="nickname" type="text" placeholder="Nickname" style= "color:#7A848C;">
           닉네임은 3자 이상 또는 특수문자 제외 
-          <input id="password" class="form__input" onkeyup="enterSignup()" name="password" type="password" placeholder="Password" maxlength="16">
+          <input id="password" class="form__input" onkeyup="enterSignup()" name="password" type="password" placeholder="Password" maxlength="16" style= "color:#7A848C;">
           비밀번호는 8자 이상 16자이하의 영문 대/소문자, 숫자, 특수문자 필수
-          <input id="repassword" class="form__input" onkeyup="enterSignup()" name="repassword" type="password" placeholder="Confirm Password" maxlength="16">
+          <input id="repassword" class="form__input" onkeyup="enterSignup()" name="repassword" type="password" placeholder="Confirm Password" maxlength="16" style= "color:#7A848C;">
           <button class="form__button button submit" type="button" onclick="signup()">회원가입</button><br>
-          <div class="alert alert-danger" id="alert-danger"></div>
+          <div class="alert alert-danger" style="border-color: #ff1744; border:solid 1px;" id="alert-danger"></div>
         </form>
       </div>
 
@@ -35,8 +35,8 @@
       <div class="container b-container" id="b-container">
         <form class="form" id="b-form">
           <h2 class="form_title title">로그인</h2>
-          <input id="signin_email" class="form__input" onkeyup="enterLogin()" name="signin_email" type="email" placeholder="Email">
-          <input id="signin_password" class="form__input" onkeyup="enterLogin()" name="signin_password" type="password" placeholder="Password" maxlength="16">
+          <input id="signin_email" class="form__input" onkeyup="enterLogin()" name="signin_email" type="email" placeholder="Email" style= "color:#7A848C;">
+          <input id="signin_password" class="form__input" onkeyup="enterLogin()" name="signin_password" type="password" placeholder="Password" maxlength="16" style= "color:#7A848C;">
           <button class="form__button button submit" type="button" onclick="Login()">로그인</button>
         </form>
       </div>
@@ -63,6 +63,6 @@
 </html>
 <!-- partial -->
 <script src="./static/script/user_api.js"></script>
-<script src="./static/style/js/script.js"></script>
+<script src="./static/style/js/user_style.js"></script>
 </body>
 </html>
