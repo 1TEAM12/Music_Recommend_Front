@@ -1,6 +1,8 @@
 window.onload = () => {
     console.log("Home 접속 완료")
+    
 }
+
 
 $(document).ready(function(){
     songlistview2();
@@ -8,7 +10,7 @@ $(document).ready(function(){
 
 
 
-function songlistview2() {
+async function songlistview2() {
     $('#songs-box').empty()
     $.ajax({
         type:"GET",
@@ -23,34 +25,37 @@ function songlistview2() {
                 let id = rows[i]['id']
 
                 let temp_html = `<figure style="display: inline-block;margin:10px;">
-                                        <div class="img-wrapper">
-                                            <img src="${image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
-                                            <div class="img-overlay text-white text-center">
-                                                <a href="album-single.html">
-                                                    <div class="figcaption mt-3">
-                                                        <i class="icon-link s-48"></i>
-                                                        
-                                                        <div id="SongCard" class="mt-5">
-                                                            <h5 class="mt-5"">${title}</h5>
-                                                        </div>
-                                                        <span>${id}</span>
-                                                        <span>${singer}</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="figure-title text-center p-2" style="width:300px;">
-                                                <h5>${title}</h5>
-                                                <span style="width:300px;">${id}</span>
-                                                <span style="width:300px;">${singer}</span>
+                                    <a href="song_rcm.html">
+                                    <div class="img-wrapper">
+                                        <img src="${image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                        <div class="img-overlay text-white text-center">
+                                            <div class="figcaption mt-3">
+                                                <i class="icon-link s-48"></i>
+                                                
+                                                <div id="SongCard" class="mt-5">
+                                                    <h5 class="mt-5"">${title}</h5>
+                                                </div>
+                                                <span>${id}</span>
+                                                <span>${singer}</span>
                                             </div>
                                         </div>
-                                    </figure>`
+                                        <div class="figure-title text-center p-2" style="width:300px;">
+                                            <h5>${title}</h5>
+                                            <span style="width:300px;">${singer}</span>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </figure>`
                                 $('#songs-box').append(temp_html)
                 console.log(title, singer, image, id)
             }
         }
     })
 }
+
+
+
+
 
 
 // async function songlistview() {
