@@ -87,22 +87,28 @@
 <div class="control-sidebar-bg shadow  fixed"></div>
 <div class="searchOverlay page">
     <button id="btn-searchOverlay-close" class="btn btn--searchOverlay-close" aria-label="Close searchOverlay form">
+
         <div class="icon icon-multiply"></div>
     </button>
     <div class="searchOverlay__inner  searchOverlay__inner--up">
         <form class="searchOverlay__form" action="#">
+            <input type="text" style="display:none;"/>
             <input
+                    id="keyword"
                     class="searchOverlay__input"
                     name="searchOverlay"
                     type="text"
                     placeholder="Search"
                     autocomplete="off"
-                    spellcheck="false"
+                    spellcheck="false"              
+                    onkeypress="enterkey()"
+
             />
             <span class="searchOverlay__info">Hit enter to searchOverlay or ESC to close</span>
         </form>
     </div>
 </div>
+
 
 
 <!--navbar-->
@@ -232,6 +238,7 @@
     <script src="./static/script/song_rcm_list_api.js"></script>
     <script src="./static/style/js/song_rcm_list_style.js"></script>
     <script src="static/script/profile_api.js"></script>
+    <script src="./static/script/search_api.js"></script>
 
 
 
