@@ -27,6 +27,7 @@ async function searchParam(){
             method:'GET',
         })
             response_json = await response.json()
+        console.log(response_json)
 
         if(response_json.length){
                 const articles = document.getElementById("articles")
@@ -34,7 +35,6 @@ async function searchParam(){
                 while (articles.firstChild) {
                     articles.removeChild(articles.firstChild);
                 }
-
 
                 response_json.forEach(item => {
                     $('#articles').append(
@@ -44,7 +44,7 @@ async function searchParam(){
                                     <div class="img-wrapper">
                                         <img src="${item.image}" onerror="this.src='../assets/img/demo/a7.jpg'" alt="/">
                                         <div class="img-overlay text-white text-center">
-                                            <a href="song_detail.html">
+                                            <a href="#" onclick="move_detail_page(${item.id})">
                                                 <div class="figcaption mt-3">
                                                     <i class="icon-link s-48"></i>
                                                     <h5 class="mt-5">${item.title}</h5>
@@ -79,3 +79,7 @@ function enterkey(e) {
 }
 
 
+function move_detail_page(click_id){ 
+    console.log(click_id)
+    window.location.href = `/song_detail.html?id=${click_id}`;
+}
