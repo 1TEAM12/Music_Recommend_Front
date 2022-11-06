@@ -10,7 +10,7 @@ service();
   
 
 const backendBaseUrl = "http://127.0.0.1:8000"
-const frontendBaseUrl = "http://127.0.0.1:5500"
+const frontendBaseUrl = "http://127.0.0.1:5555"
 
 //프로필 정보
 window.onload =  async function Profile() {
@@ -98,7 +98,6 @@ async function ProfileEdit() {
 async function ConfirmPassword() {
 
     const password =  document.getElementById("password").value
-    console.log(password)
     const response = await fetch(`${backendBaseUrl}/users/changepassword/`,{
         headers:{
             'Content-type':'application/json',
