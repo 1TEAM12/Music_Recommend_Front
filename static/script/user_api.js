@@ -86,7 +86,7 @@ async function Login() {
             }).join('')
         );
         localStorage.setItem("payload", jsonPayload);
-        location.replace('index.html')
+        location.replace('song_rcm.html')
 
     } else {
         alert("아이디와 비밀번호를 확인해주세요");
