@@ -22097,3 +22097,10 @@ nav.nav-flat .navbar-brand{
     position:absolute;
     left:10px
 }
+
+.text_reduce {
+    display:block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}

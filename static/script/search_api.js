@@ -27,7 +27,7 @@ async function searchParam(){
             method:'GET',
         })
             response_json = await response.json()
-
+        console.log(response_json)
 
         if(response_json.length){
                 const articles = document.getElementById("articles")
@@ -36,16 +36,15 @@ async function searchParam(){
                     articles.removeChild(articles.firstChild);
                 }
 
-
                 response_json.forEach(item => {
                     $('#articles').append(
                         `
                         <div class="col-lg-3 col-md-4 col-sm-6 my-2">
                                 <figure>
                                     <div class="img-wrapper">
-                                        <img src="${item.image}" alt="/">
+                                        <img src="${item.image}" onerror="this.src='../assets/img/demo/a7.jpg'" alt="/">
                                         <div class="img-overlay text-white text-center">
-                                            <a href="album-single.html">
+                                            <a href="#" onclick="move_detail_page(${item.id})">
                                                 <div class="figcaption mt-3">
                                                     <i class="icon-link s-48"></i>
                                                     <h5 class="mt-5">${item.title}</h5>
@@ -53,9 +52,9 @@ async function searchParam(){
                                             </a>
                                         </div>
                                         <div class="figure-title text-center p-2">
-                                            <h5>${item.title}</h5>
-                                            <div>${item.singer}</div>
-                                            <div>${item.genre}</div>
+                                            <h5 class="text_reduce">${item.title}</h5>
+                                            <div class="text_reduce">${item.singer}</div>
+                                            <div class="text_reduce">${item.genre}</div>
                                         </div>
                                     </div>
                                 </figure>
@@ -73,8 +72,6 @@ async function searchParam(){
     }
 }
 
-
-
 function enterkey(e) {
     if (window.event.keyCode == 13){
         sendSearchKeyword().then();
@@ -82,3 +79,7 @@ function enterkey(e) {
 }
 
 
+function move_detail_page(click_id){ 
+    console.log(click_id)
+    window.location.href = `/song_detail.html?id=${click_id}`;
+}
