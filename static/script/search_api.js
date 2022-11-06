@@ -3,6 +3,7 @@ window.onload = () => {
 }
 
 
+
 function sendSearchKeyword(){
     var inputValue = document.getElementById('keyword').value;
     console.log(inputValue);
@@ -26,13 +27,14 @@ async function searchParam(){
             method:'GET',
         })
             response_json = await response.json()
-            console.log(response_json)
+
         if(response_json.length){
                 const articles = document.getElementById("articles")
                 console.log(response_json)
                 while (articles.firstChild) {
                     articles.removeChild(articles.firstChild);
                 }
+
 
                 response_json.forEach(item => {
                     $('#articles').append(

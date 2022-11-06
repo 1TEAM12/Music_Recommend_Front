@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon">
+    <title>Record</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+    .alert-danger {
+        color: #ff1744;
+        background-color: #0C101B;
+        display: none;
+      }
+      
+      .alert{
+        position: relative;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+      }
+    </style>
+</head>
+
+<body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader" style="display: none;">
+<!-- Pre loader
+  To disable preloader remove 'has-preloader' from body
+ -->
+
+<div id="loader" class="loader">
+    <div class="loader-container">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- @Pre loader-->
+<!-- Add the sidebar's background. This div must be placedimmediately after the control sidebar -->
+
+<!--Page Content-->
+<main id="pageContent" class="page has-sidebar">
+<div class="page has-sidebar-left">
+    <div class="wrapper animatedParent animateOnce">
+        <div class="container-fluid my-3">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body b-b">
+                            <form class="form-material">
+                                <div class="preview">
+                                    <div class="upload">
+                                        <canvas id="imageCanvas"></canvas>
+                                    </div>
+                                </div>
+                                <div class="body">
+                                    <h6>변경하실 프로필 이미지를 설정해주세요</h6>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line focused">
+                                                    <input type="file" class="form-control" name="image" id="id_photo" accept="profile_pics/*"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="body">
+                                    <h6>변경하실 닉네임을 적어주세요</h6>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-line focused">
+                                                    <input type="text" id='nickname'class="form-control" placeholder="Nickname"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    
+                        <div class="card-body b-b">
+                            <button type="button" onclick="ProfileEdit()" class="btn btn-primary">Edit</button><p></p>
+                            <div class="alert alert-danger" style="border-color: #ff1744; border:solid 1px; background:#0C101B;" id="alert-danger"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><!--@Page Content-->
+<!--/#rekord-app -->
+<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyC3YkZNNySdyR87o83QEHWglHfHD_PZqiw&libraries=places"></script>
+<script src="assets/js/app.js"></script>
+<script src="static/style/js/user_edit_style.js"></script>
+<script src="static/script/profile_api.js"></script>
+</body>
+</html>
