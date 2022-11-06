@@ -189,22 +189,15 @@
                             <div class="d-lg-flex align-items-center">
                                 <img id="song_image" width="60px">&nbsp;&nbsp;</img>
                                 <h1 id = "song_title" class="my-3 h4"><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_singer" class="my-3 h4"></h1><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_genre" class="my-3 h4"></h1>
-
-
                                 <div class="ml-auto">
-                                    <a href="#" class="snackbar ml-3" data-text="Added to favourites"
-                                       data-pos="top-right"
-                                       data-showAction="true"
-                                       data-actionText="ok"
-                                       data-actionTextColor="#fff"
-                                       data-backgroundColor="#0c101b"><i class="icon-heart s-24"></i></a>
+                                    <a onclick="SongLike()" class="heartBtn" ><i class="icon-heart s-24"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item"
-                                src="https://www.youtube.com/embed/GhifGWqFgMU?controls=0"
+                                src="https://www.youtube.com/embed/Av6vjZVtDR8"
                                 height="540"
                                 allowfullscreen></iframe>
                     </div>
@@ -231,7 +224,7 @@
                             <div>
                                 <div class="p-5 bg-primary text-white">
                                     <h5 class="font-weight-normal s-14">Comment</h5>
-                                    <span class="s-48 font-weight-lighter text-primary">1000</span>
+                                    <span id="comments_count" class="s-48 font-weight-lighter text-primary"></span>
                                 </div>
                             </div>
 
@@ -262,18 +255,33 @@
                                 <h6 id="song_lyrics"class="mt-0"></h6>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="card mt-1 mb-5">
+                    <div class="card-body">
                         <div class="media my-5 ">
-                            <div class="avatar avatar-md mr-3 mt-1">
-                                <img id='profile_image_box' alt="user" >
-                            </div>
                             <div class="media-body">
-                                <div id="comments_box">
+                                <div class="one-comment">
+                                    <!-- <div class="avatar avatar-md mr-3 mt-1">
+                                        <img id='profile_image_box' alt="user" >
+                                    </div> -->
+                                    <!-- 댓글 부분 -->
+                               </div>
+                                <!-- <div id="comments_box" class="">
                                     <div id="comment_user" class="mt-0"></div>
                                     <div id="comment_created_at" class="mt-0"></div>
                                     <div id="comment_content" class="mt-0"></div> 
-                                </div>
-
+                                </div>  -->
                             </div>
+                            <form class="bg-light p-2">
+                                <div class="d-flex flex-row align-items-start"><textarea
+                                        class="form-control ml-1 shadow-none textarea" id="comment-content"></textarea></div>
+                                <div class="mt-2 text-right">
+                                    <button class="btn btn-primary btn-sm shadow-none" type="button" onclick="handleComment()">
+                                        Post comment
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -353,7 +361,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyC3YkZNNySdyR87o83QEHWglHfHD_PZqiw&libraries=places"></script>
 <script src="assets/js/app.js"></script>
 <script src="static/script/profile_api.js"></script>
+<script src="./static/script/song_detail.js"></script>
 <script src="./static/script/song_detail_api.js"></script>
+<script src="./static/style/js/song_detail_style.js"></script>
 
 </body>
 </html>
