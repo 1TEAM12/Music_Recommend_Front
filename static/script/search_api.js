@@ -59,30 +59,7 @@ async function searchParam(){
                             </div>
                         `
                     )
-                // console.log(element.title)
-                // const newArticle = document.createElement("div")
-                // newArticle.innerText = element.title
-                // articles.appendChild(newArticle)
-
-                // const newArticle1 = document.createElement("div")
-                // newArticle1.innerText = element.singer
-                // articles.appendChild(newArticle1)
-
-                // const newArticle2 = document.createElement("div")
-                // newArticle2.innerText = element.genre
-                // articles.appendChild(newArticle2)
-
-                // const x = document.createElement("IMG");
                 
-                // x.setAttribute("src", element.image);
-                // console.log(element.image)
-                // x.setAttribute("width", "265");
-                
-                // x.setAttribute("height", "265");
-                
-                // x.setAttribute("alt", "랜덤짤");
-                
-                // articles.appendChild(x)
                 });  
                 
         }else{
