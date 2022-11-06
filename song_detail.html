@@ -166,7 +166,8 @@
                     <div class="card no-b r-0">
                         <div class="card-body p-4">
                             <div class="d-lg-flex align-items-center">
-                                <h1 class="my-3 h4">Song Title | Song Singer | Song Genre</h1>
+                                <img id="song_image" width="60px">&nbsp;&nbsp;</img>
+                                <h1 id = "song_title" class="my-3 h4"><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_singer" class="my-3 h4"></h1><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_genre" class="my-3 h4"></h1>
                                 <div class="ml-auto">
                                     <a href="#" class="snackbar ml-3" data-text="Added to favourites"
                                        data-pos="top-right"
@@ -220,7 +221,7 @@
                             <div>
                                 <div class="p-5">
                                     <h5 class="font-weight-normal s-14">Likes</h5>
-                                    <span class="s-48 font-weight-lighter pink-text">1000</span>
+                                    <span id="song_likes" class="s-48 font-weight-lighter pink-text"></span>
                                     <div> 
                                     </div>
                                 </div>
@@ -233,44 +234,20 @@
                 <div class="card mt-1 mb-5">
                     <div class="card-body">
                         <div class="media my-5 ">
-                            <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u7.png" alt="user">
-                            </div>
                             <div class="media-body">
-                                <h6 class="mt-0">Ami Fro</h6>
-                                Cras sit amet nibh libero, in gravida nulla.
+                                <h6 id="song_lyrics"class="mt-0"></h6>
                             </div>
                         </div>
                         <div class="media my-5 ">
                             <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u6.png" alt="user">
+                                <img id='profile_image_box' alt="user" >
                             </div>
                             <div class="media-body">
-                                <h6 class="mt-0">Sara Kamzoon</h6>
-                                vestibulum in vulputate at, tempus viverra turpis.
-                            </div>
-                        </div>
-                        <div class="media my-5 ">
-                            <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u9.png" alt="user">
-                            </div>
-
-                            <div class="media-body">
-                                <h6 class="mt-0">Ami Fro</h6>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in
-                                vulputate at, tempus viverra turpis.
-                            </div>
-                        </div>
-                        <div class="media my-5 ">
-                            <div class="avatar avatar-md mr-3 mt-1">
-                                <img src="assets/img/demo/u10.png" alt="user">
-                            </div>
-                            <div class="media-body">
-                                <h6 class="mt-0">Ami Fro </h6>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in
-                                vulputate at, tempus viverra turpis.
+                                <div id="comments_box">
+                                    <div id="comment_user" class="mt-0"></div>
+                                    <div id="comment_created_at" class="mt-0"></div>
+                                    <div id="comment_content" class="mt-0"></div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -289,7 +266,7 @@
                            </div>
                            <div class="ml-3">
                                <a href="video-single.html">
-                                   <h6>Song Title</h6>
+                                   <h6 id="songs_title"></h6>
                                </a>
                                <small class="mt-1">Song Singer</small>
                            </div>
@@ -351,6 +328,7 @@
 <!--/#rekord-app -->
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyC3YkZNNySdyR87o83QEHWglHfHD_PZqiw&libraries=places"></script>
 <script src="assets/js/app.js"></script>
+<script src="./static/script/song_detail_api.js"></script>
 
 
 </body>
