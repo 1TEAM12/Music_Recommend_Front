@@ -1,42 +1,87 @@
-console.log("Home 접속 완료")
 
-window.onload = async function songlistview2() {
-    const response = await fetch('http://127.0.0.1:8000/songs/', {method:'GET'})
+
+async function songlistview2() {
+    const response = await fetch('http://127.0.0.1:8000/songs/', {
+        headers:{'content-type':'application/json'},
+        method:'GET',
+    })
     response_json = await response.json()
     console.log(response_json)
 
-    const songs = document.getElementById("songs")
-
-    response_json.forEach(element => {
-        const song_title = document.createElement("h4");
-        const song_singer = document.createElement("h5");
-        const song_image = document.createElement("image");
-        const song_id = document.createElement("p");
-
-        // song_title.setAttribute("class", "song_title");
-        // song_singer.setAttribute("class", "song_singer");
-        // song_image.setAttribute("class", "song_image");
-        // song_id.innerHTML = `<a onclick=goDetail(${response_json.id})>${response_json.title}</a>`;
-        // song_id.setAttribute("class", "song_id");
-
-        // song_image.style.backgroundImage = `url(${image})`
-        
-        song_title.innerText = element.title
-        songs.appendChild(song_title)
-
-        
-        song_singer.innerText = element.singer
-        songs.appendChild(song_singer)
-        
-        
-        song_image.innerText = element.image
-        songs.appendChild(song_image)
-
-        
-        song_id.innerText = element.id
-        songs.appendChild(song_id)
-    })
+    $('#songs-box').empty()
+    response_json.forEach(item => {
+        $('#songs-box').append(
+            `<figure style="display: inline-block;margin:10px;">
+            <a href="#" onclick="move_rcm_page(${item.id})">
+                <div class="img-wrapper">
+                    <img src="${item.image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                    <div class="img-overlay text-white text-center">
+                        <div class="figcaption mt-3">
+                            <i class="icon-link s-48"></i>
+                            
+                            <div id="SongCard" class="mt-5">
+                                <h5 id="title" class="mt-5""></h5>
+                            </div>
+                            <span id="id" value="${item.id}">${item.id}</span>
+                            <span id="singer">${item.singer}</span>
+                            <div id="songs">${item.title}</div>
+                        </div>
+                    </div>
+                    <div class="figure-title text-center p-2" style="width:300px;">
+                        <h5 id="title"></h5>
+                        <span id="singer" style="width:300px;"></span>
+                    </div>
+                </div>
+            </a>
+        </figure>`
+        )
+    });
 }
+
+
+
+
+function move_rcm_page(click_id){ 
+    console.log(click_id)
+    window.location.href = `/song_rcm.html?id=${click_id}`;
+}
+
+
+
+$(songlistview2)
+
+
+
+//         const song_title = document.createElement("h4");
+//         const song_singer = document.createElement("h5");
+//         const song_image = document.createElement("image");
+//         const song_id = document.createElement("p");
+
+//         // song_title.setAttribute("class", "song_title");
+//         // song_singer.setAttribute("class", "song_singer");
+//         // song_image.setAttribute("class", "song_image");
+//         // song_id.innerHTML = `<a onclick=goDetail(${response_json.id})>${response_json.title}</a>`;
+//         // song_id.setAttribute("class", "song_id");
+
+//         // song_image.style.backgroundImage = `url(${image})`
+        
+//         song_title.innerText = element.title
+//         songs.appendChild(song_title)
+
+        
+//         song_singer.innerText = element.singer
+//         songs.appendChild(song_singer)
+        
+        
+//         song_image.innerText = element.image
+//         songs.appendChild(song_image)
+
+        
+//         song_id.innerText = element.id
+//         songs.appendChild(song_id)
+//     })
+// }
+
 
 
 
