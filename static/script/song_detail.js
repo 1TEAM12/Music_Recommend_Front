@@ -1,10 +1,17 @@
 const token = localStorage.getItem("payload");
 let user_id = JSON.parse(token)
 
+
+
 //노래 GET
 async function SongDetailView(id){
+    let getLink = window.location.search;
+    let getLink_Name = getLink.split('=');
+    let getLink_result = getLink_Name[1]
+    let decodeResult = decodeURI(getLink_result);
+    console.log(decodeResult);
 
-    const response = await fetch(`${backendBaseUrl}/songs/${id}/`, {
+    const response = await fetch(`${backendBaseUrl}/songs/${decodeResult}/`, {
         method: 'GET',
         headers: {
             Accept: "application/json",

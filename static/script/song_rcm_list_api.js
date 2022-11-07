@@ -9,7 +9,6 @@ async function songlistview2() {
     })
     response_json = await response.json()
     console.log(response_json)
-
     $('#songs-box').empty()
     response_json.forEach(item => {
         $('#songs-box').append(
@@ -40,17 +39,7 @@ async function songlistview2() {
 }
 
 
-// function move_rcm_page(click_id, click_title){ 
-//     console.log(click_id, click_title)
-//     encoded_title = encodeURI(click_title)
-//     console.log(encoded_id, encoded_title)
-//     window.location.href = `/song_rcm.html?id=${encoded_id}&title=${encoded_title}`;
-// }
-
-
-
 function move_rcm_page(click_id){ 
     console.log(click_id)
     window.location.href = `/song_rcm.html?id=${click_id}`;
 }
-
