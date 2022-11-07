@@ -9,6 +9,7 @@
     <title>Record</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="static/style/css/song_detail_style.css">
 </head>
 
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader" style="display: none;">
@@ -193,10 +194,21 @@
                     <div class="card no-b r-0">
                         <div class="card-body p-4">
                             <div class="d-lg-flex align-items-center">
-                                <img id="song_image" width="60px">&nbsp;&nbsp;</img>
+                                <img id="song_image" width="60px">&nbsp;&nbsp;
                                 <h1 id = "song_title" class="my-3 h4"><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_singer" class="my-3 h4"></h1><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_genre" class="my-3 h4"></h1>
-                                <div class="ml-auto">
+                                
+                                
+                                <div class="ml-auto pt-3 p-lg-0">
                                     <a onclick="SongLike()" class="heartBtn" id="heartBtn"><i class="icon-heart s-24" style="color:red;" id="hearticon"></i></a>
+                                    <a id="playlistupdate" class="ml-3"><i class="icon-plus s-24" style="color:red"></i></a>
+                                    <div class="modal hidden">
+                                        <div class="modal__overlay"></div>
+                                        <div class="modal__content_1" id="playlist_song_view">
+                                            <div>
+                                                <button id="playlist_song_create" style="display:none;"></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -371,6 +383,7 @@
 <script src="./static/script/song_detail_api.js"></script>
 <script src="./static/style/js/song_detail_style.js"></script>
 <script src="./static/script/search_api.js"></script>
+
 
 </body>
 </html>

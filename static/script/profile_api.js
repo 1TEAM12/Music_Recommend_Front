@@ -107,8 +107,6 @@ async function ConfirmPassword() {
         body: JSON.stringify(password)
     })
 
-  const result = await response.json()
-
   if (response.status === 200) {
       alert("비밀번호 확인 완료")
       window.location.replace(`user_password_change.html`)

@@ -83,6 +83,7 @@ async function PlaylistDetailView(playlistId){
                         <div class="col">
                             <h6>${item.genre}</h6>
                         </div>
+                        <a id="${item.id}" onclick="PlaylistSongDelete(this)" class="nav-link mr-3 btn--searchOverlay no-ajaxy"><i class="icon-minus-1 s-24 style="color:red;"></i></a>
                         <div class="ml-auto">
                             <a onclick="location.href='/song_detail.html?${item.id}'" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
                         </div>
@@ -108,10 +109,11 @@ async function PlaylistDetailDelete(){
     )
     response_json = await response.json
     if (response.status === 200) {
-        
+        alert("플레이리스트가 삭제되었습니다")
+        location.replace('playlist.html')    
     }else {
         alert(response_json["error"])
-        location.replace('playlist.html')    
+  
     }
 }}
 
@@ -180,3 +182,25 @@ async function PlaylistDetailCreate(){
         alert(response_json["error"])
     }
 }
+
+//Playlist 노래 삭제
+async function PlaylistSongDelete(playlistsongid){
+    var delConfirm = confirm("플레이리스트에 노래를  삭제 하시겠습니까?")
+    if (delConfirm){const response = await fetch(`${backendBaseUrl}/playlists/${playlistId}/${playlistsongid.id}/`, {
+    method: 'POST',
+    headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+    }
+    )
+    response_json = await response.json
+    if (response.status === 200) {
+        alert("플레이리스트에 노래가 삭제되었습니다.")
+        location.reload()
+        
+    }else {
+        alert(response_json["error"])
+    }
+}}
