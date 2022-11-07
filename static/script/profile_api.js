@@ -10,10 +10,10 @@ service();
   
 
 const backendBaseUrl = "http://127.0.0.1:8000"
-const frontendBaseUrl = "http://127.0.0.1:5555"
+const frontendBaseUrl = "http://127.0.0.1:5500"
 
 //프로필 정보
-window.onload =  async function Profile() {
+async function Profile() {
   const response = await fetch(`${backendBaseUrl}/users/`, {
     method: "GET",
     headers: {
@@ -24,7 +24,6 @@ window.onload =  async function Profile() {
 
   })
   response_json = await response.json()
-
   const h4_profile_nickname = document.getElementById("profile_nickname")
   const h4_profile_email = document.getElementById("profile_email")
 
@@ -34,6 +33,7 @@ window.onload =  async function Profile() {
   document.getElementById("profile_image").src = `${backendBaseUrl}${response_json.profile_image}`
 }
 
+Profile()
 
 // 회원탈퇴
 async function withdrawal() {
@@ -106,8 +106,6 @@ async function ConfirmPassword() {
         method: 'POST',
         body: JSON.stringify(password)
     })
-
-  const result = await response.json()
 
   if (response.status === 200) {
       alert("비밀번호 확인 완료")

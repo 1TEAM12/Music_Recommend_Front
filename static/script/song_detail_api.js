@@ -1,6 +1,6 @@
 window.onload = async function loadSongs(){
     let getLink = window.location.search;
-    let getLink_Name = getLink.split('=');
+    let getLink_Name = getLink.split('?');
     let getLink_result = getLink_Name[1]
     console.log(getLink_result)
 
@@ -23,6 +23,7 @@ const songId = location.href.split('?')[1]
 const commentId = location.href.split('?')[1]
 const voiceId = location.href.split('?')[1]
 
+
 // 댓글시간 나타내기
 function time2str(date) {
     let today = new Date()
@@ -41,10 +42,9 @@ function time2str(date) {
     }
     return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`
 };
-
 // 노래 상세정보
+
 async function loadSongs(){
-    
     const song_detail = await SongDetailView(songId)
     console.log(song_detail.song_likes)
     console.log(user_id.email)
@@ -57,17 +57,18 @@ async function loadSongs(){
     h1_song_singer.innerText = song_detail.singer
     h1_song_genre.innerText = song_detail.genre
 
-    // if (song_detail.song_likes.indexOf(user_id.email)){
-    //     a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:gray"></i>'
-    // } else {
-    //     a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:red"></i>'
-    // }
+
+    if (song_detail.song_likes.indexOf(user_id.email)){
+        a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:red;"></i>'
+    } else {
+        a_heart_btn.innerHTML = '<i class="icon-heart s-24"></i>'
+    }
 
     document.getElementById("song_image").src = song_detail.image
 
     const h6_song_lyrics = document.getElementById("song_lyrics")
     const span_song_likes = document.getElementById("song_likes")
-    
+
     span_song_likes.innerText = song_detail.song_likes_count
     h6_song_lyrics.innerText = song_detail.lyrics
 
@@ -100,7 +101,7 @@ async function loadComments(){
         //프로필이미지
         const newCommentUserImage = document.createElement("img")
         let profile_image = comment_detail['results'][i]['profile_image']
-        newCommentUserImage.setAttribute("src", `${backendBaseUrl}/${profile_image}` )
+        newCommentUserImage.setAttribute("src", `${backendBaseUrl}${profile_image}` )
         newCommentUserImage.setAttribute("class", "avatar avatar-md mr-3 mt-1" )
         newCommentUserInfo.append(newCommentUserImage)        
 
@@ -297,7 +298,7 @@ async function handleComment(){
         //프로필이미지
         const newCommentUserImage = document.createElement("img")
         let profile_image = comment_detail['results'][0]['profile_image']
-        newCommentUserImage.setAttribute("src", `${backendBaseUrl}/${profile_image}` )
+        newCommentUserImage.setAttribute("src", `${backendBaseUrl}${profile_image}` )
         newCommentUserImage.setAttribute("class", "avatar avatar-md mr-3 mt-1" )
         newCommentUserInfo.append(newCommentUserImage)
 
@@ -373,84 +374,3 @@ async function deleteVoice(voice) {
     await deletevoiceView(songId, voiceId)
 }
 
-
-
-// async function handleVoice(){
-
-//     const content = document.getElementById("mp-file-upload").value
-//     console.log(content)
-//     const file_name = content.split('\\')[2]
-//     console.log(file_name)
-
-
-//     if (content.Length == 0) {
-//         alert("파일을 업로드하세요")
-//     }else{
-        
-//         const voice_content = await mpload(songId, content)
-//         console.log(voice_content)
-//         const comment_detail = await CommentDetailView(commentId)      
-//         const loadComments = document.getElementsByClassName("one-comment")[0]
-
-//         const newCommentLayout = document.createElement("div")
-//         newCommentLayout.setAttribute("class", "bg-white p-2")
-//         loadComments.prepend(newCommentLayout)
-
-//         const newCommentUser = document.createElement("div")
-//         newCommentUser.setAttribute("class", "d-flex flex-row user-info")
-//         newCommentLayout.append(newCommentUser)
-
-//         const newCommentUserInfo = document.createElement("div")
-//         newCommentUserInfo.setAttribute("class", "d-flex flex-column justify-content-start ml-2")
-//         newCommentUser.append(newCommentUserInfo)
-        
-//         //프로필이미지
-//         const newCommentUserImage = document.createElement("img")
-//         let profile_image = comment_detail['results'][0]['profile_image']
-//         newCommentUserImage.setAttribute("src", `${backendBaseUrl}/${profile_image}` )
-//         newCommentUserImage.setAttribute("class", "avatar avatar-md mr-3 mt-1" )
-//         newCommentUserInfo.append(newCommentUserImage)
-
-//         //유저닉네임
-//         const newCommentUserName = document.createElement("span")
-//         newCommentUserName.setAttribute("class", "d-block font-weight-bold name")
-//         newCommentUserName.innerText = comment_detail['results'][0]['user']
-//         newCommentUserInfo.append(newCommentUserName)
-
-//         //댓글단 시간
-//         const newCommentTime = document.createElement("span")
-//         newCommentTime.setAttribute("class", "date text-black-50")
-
-//         let time_post = new Date(comment_detail['results'][0]['created_at'])
-//         let time_before = time2str(time_post)
-
-//         newCommentTime.innerText = time_before
-//         newCommentUserInfo.append(newCommentTime)
-//         //댓글내용
-//         const newCommentArea = document.createElement("div")
-//         newCommentArea.setAttribute("class", "mt-2")
-//         newCommentLayout.append(newCommentArea)
-
-//         const newCommentText = document.createElement("p")
-//         newCommentText.setAttribute("class", "comment-text")
-//         newCommentText.innerText = comment_detail['results'][0]['content']
-//         newCommentArea.append(newCommentText)
-
-//         //삭제 버튼
-//         if(comment_detail['results'][0]['user'] == user_id['nickname'] ){
-//         const newDeleteBtn = document.createElement("button")
-//         newDeleteBtn.setAttribute("class", "comment-delete")
-//         newDeleteBtn.setAttribute("id", comment_detail['results'][0]['id'])
-//         newDeleteBtn.setAttribute("onclick", `deleteComment(this)`)
-//         newDeleteBtn.innerText = "삭제"
-//         newCommentUser.append(newDeleteBtn)
-
-//         //수정 버튼
-//         const newUpdateBtn = document.createElement("button")
-//         newUpdateBtn.setAttribute("class", "comment-update")
-//         newUpdateBtn.setAttribute("id", comment_detail['results'][0]['id'])
-//         newUpdateBtn.setAttribute("onclick", `updateComment(this)`)
-//         newUpdateBtn.innerText = "수정"
-//         newCommentUser.append(newUpdateBtn)
-//     }
-// }}

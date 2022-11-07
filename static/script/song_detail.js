@@ -1,10 +1,19 @@
 const token = localStorage.getItem("payload");
 let user_id = JSON.parse(token)
+const likeId = location.href.split('?')[1]
+console.log(likeId)
+
+
 
 //노래 GET
 async function SongDetailView(id){
+    let getLink = window.location.search;
+    let getLink_Name = getLink.split('=');
+    let getLink_result = getLink_Name[1]
+    let decodeResult = decodeURI(getLink_result);
+    console.log(decodeResult);
 
-    const response = await fetch(`${backendBaseUrl}/songs/${id}/`, {
+    const response = await fetch(`${backendBaseUrl}/songs/${decodeResult}/`, {
         method: 'GET',
         headers: {
             Accept: "application/json",
@@ -154,8 +163,8 @@ async function updatecommentView(id, comment_id, comment){
 
 //좋아요 POST
 async function SongLike() {
+    const response = await fetch(`${backendBaseUrl}/songs/${likeId}/song_like/`, {
 
-    const response = await fetch(`${backendBaseUrl}/songs/${songId}/song_like/`, {
         method: 'POST',
         headers: {
             Accept:"application/json",
@@ -164,27 +173,19 @@ async function SongLike() {
         },
     }
     )
-    
-    response_json = await response.json
 
     const a_heart_btn = document.getElementById("heartBtn")
 
-    if(a_heart_btn.style.color == 'red'){
-        a_heart_btn.style.color = 'gray' 
-    } elif 
-
-    if (a_heart_btn.style.color == "gray"){
-        a_heart_btn.style.color = 'red'
-    } else{
-        a_heart_btn.style.color = 'gray' 
-    }
+    response_json = await response.json
 
     if (response.status == 200) {
+        window.location.reload()
         return
     }else {
         alert(response_json["msg"])
     }
     
+
 }
 
 
@@ -228,4 +229,30 @@ async function deletevoiceView(id, voice_id){
             alert(response_json["error"])
         }
 }
+
+}
+
+// 좋아요 불러오기
+async function songlistview2() {
+    const response = await fetch('http://127.0.0.1:8000/1/song_like/', {
+        headers:{'content-type':'application/json'},
+        method:'GET',
+    })
+    response_json = await response.json()
+    console.log(response_json)
+    response_json.forEach(item => {
+        $('#like-card').append(
+            `<div class="d-flex align-items-center mb-4 ">
+            <div class="col-5">
+                <img src="assets/img/demo/v4.jpg" alt="Card image">
+            </div>
+            <div class="ml-3">
+                <a href="video-single.html">
+                    <h6 id="songs_title">Song Title</h6>
+                </a>
+                <small class="mt-1">Song Singer</small>
+            </div>
+        </div>`
+        )
+    });
 }

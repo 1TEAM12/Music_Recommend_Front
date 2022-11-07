@@ -52,7 +52,7 @@ async function searchParam(){
                                             </a>
                                         </div>
                                         <div class="figure-title text-center p-2">
-                                            <h5 class="text_reduce">${item.title}</h5>
+                                            <h5 class="text_reduce">${item.id}${item.title}</h5>
                                             <div class="text_reduce">${item.singer}</div>
                                             <div class="text_reduce">${item.genre}</div>
                                         </div>
@@ -81,5 +81,7 @@ function enterkey(e) {
 
 function move_detail_page(click_id){ 
     console.log(click_id)
-    window.location.href = `/song_detail.html?${click_id}`;
+
+    window.location.href = `/song_detail.html?$id=${click_id}`;
+
 }
