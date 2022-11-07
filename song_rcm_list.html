@@ -7,7 +7,9 @@
     <meta name="author" content="">
     <link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon">
     <title>오코완_home</title>
-
+    <script>
+        console.log("스크립트입니다")
+    </script>
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
@@ -69,14 +71,10 @@
     <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
         <div class="sidebar">
             <ul class="sidebar-menu">
-                <li><a href="song_rcm_list.html">
+                <li><a href="#" onclick="location.href='/song_rcm_list.html'">
                         <i class="icon icon-home-1 s-24"></i> <span>Home</span>
                     </a>
                 </li>
-                <li><a href="song_rcm_list.html">
-                        <i class="icon icon-layers-1 s-24"></i> <span>Recommend_songs</span>
-                    </a>
-                <li>
                 <li><a class="ajaxifyPage" href="#">
                         <i class="icon icon-windows s-24"></i> <span>My Playlist</span>
                     </a>
@@ -201,6 +199,7 @@
                                 <p style="text-align:center;font-size:50px;font-weight: bold;">듣고싶은 노래를 선택해주세요</p>
                                 <div class="pt-3" style="text-align:center">
                                     <button class="btn btn-primary btn-lg" onclick="songlistview2()">다시 검색하기</button>
+                                    
                                 </div>
                             </div>
                             <div class="bottom-gradient"></div>
@@ -232,6 +231,7 @@
     <script src="./static/style/js/song_rcm_list_style.js"></script>
     <script src="static/script/profile_api.js"></script>
     <script src="./static/script/search_api.js"></script>
+
 
 
 

@@ -1,6 +1,3 @@
-$(console.log("rcm_list_api시작"))
-$(songlistview2)
-
 
 async function songlistview2() {
     const response = await fetch('http://127.0.0.1:8000/songs/', {
@@ -43,3 +40,6 @@ function move_rcm_page(click_id){
     console.log(click_id)
     window.location.href = `/song_rcm.html?id=${click_id}`;
 }
+console.log("하이")
+$(console.log("rcm_list_api시작"))
+$(songlistview2)
