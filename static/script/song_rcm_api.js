@@ -38,7 +38,7 @@ loadSongsTitle()
 
 async function rcmParam(){
     let getLink = window.location.search;
-    let getLink_Name = getLink.split('=');
+    let getLink_Name = getLink.split('?');
     let getLink_result = getLink_Name[1]
     let decodeResult = decodeURI(getLink_result);
     console.log(decodeResult);
