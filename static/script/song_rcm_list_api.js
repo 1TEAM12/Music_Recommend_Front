@@ -1,3 +1,5 @@
+$(console.log("rcm_list_api시작"))
+$(songlistview2)
 
 
 async function songlistview2() {
@@ -22,9 +24,8 @@ async function songlistview2() {
                             <div id="SongCard" class="mt-5">
                                 <h5 id="title" class="mt-5""></h5>
                             </div>
-                            <span id="id" value="${item.id}">${item.id}</span>
-                            <span id="singer">${item.singer}</span>
-                            <div id="songs">${item.title}</div>
+                            <span style="font-weight:bold;font-size:25px;" id="singer">${item.title}</span>
+                            <div style="color:yellow" id="songs">${item.singer}</div>
                         </div>
                     </div>
                     <div class="figure-title text-center p-2" style="width:300px;">
@@ -39,6 +40,13 @@ async function songlistview2() {
 }
 
 
+// function move_rcm_page(click_id, click_title){ 
+//     console.log(click_id, click_title)
+//     encoded_title = encodeURI(click_title)
+//     console.log(encoded_id, encoded_title)
+//     window.location.href = `/song_rcm.html?id=${encoded_id}&title=${encoded_title}`;
+// }
+
 
 
 function move_rcm_page(click_id){ 
@@ -46,109 +54,3 @@ function move_rcm_page(click_id){
     window.location.href = `/song_rcm.html?id=${click_id}`;
 }
 
-
-
-$(songlistview2)
-
-
-
-//         const song_title = document.createElement("h4");
-//         const song_singer = document.createElement("h5");
-//         const song_image = document.createElement("image");
-//         const song_id = document.createElement("p");
-
-//         // song_title.setAttribute("class", "song_title");
-//         // song_singer.setAttribute("class", "song_singer");
-//         // song_image.setAttribute("class", "song_image");
-//         // song_id.innerHTML = `<a onclick=goDetail(${response_json.id})>${response_json.title}</a>`;
-//         // song_id.setAttribute("class", "song_id");
-
-//         // song_image.style.backgroundImage = `url(${image})`
-        
-//         song_title.innerText = element.title
-//         songs.appendChild(song_title)
-
-        
-//         song_singer.innerText = element.singer
-//         songs.appendChild(song_singer)
-        
-        
-//         song_image.innerText = element.image
-//         songs.appendChild(song_image)
-
-        
-//         song_id.innerText = element.id
-//         songs.appendChild(song_id)
-//     })
-// }
-
-
-
-
-// async function songlistview2() {
-//     $('#songs-box').empty()
-//     $.ajax({
-//         type:"GET",
-//         url: "http://127.0.0.1:8000/songs/",
-//         data: {},
-//         success: function (response) {
-//             let rows = response
-//             for (let i = 0; i < rows.length; i++) {
-//                 let title = rows[i]['title']
-//                 let singer = rows[i]['singer']
-//                 let image = rows[i]['image']
-//                 let id = rows[i]['id']
-//                 localStorage.setItem('song_id',id);
-//                 let temp_html = ``
-//                                 $('#songs-box').append(temp_html)
-//                 console.log(title, singer, image, id)
-//             }
-//         }
-//     })
-// }
-
-
-// function click_song() {
-//     $('#song_id').append(temp_html)
-//     localStorage.setItem('song_id',song_id);
-// }
-
-
-
-
-
-// async function songlistview() {
-//     const response = await fetch('http://127.0.0.1:8000/songs/', {
-//         headers:{
-//             "Authorization":"Bearer " + localStorage.getItem("access"),
-//             'content-type' : 'application/json',
-//         },
-//         method: 'GET',
-//     }
-//     const result = await response.text();)
-
-//     console.log(response)
-// }
-
-// async function songlistview() {
-//     const response = await fetch('http://127.0.0.1:8000/songs/', {method:'GET'})
-//     response_json = await response.json();
-//     console.log(response_json);
-
-//     const Songs = document.getElementById("SongCard")
-
-//     response_json.forEach(element => {
-//         const newSong = document.createElement("div")
-//         newSong.innerText = element.title
-//         Songs.appendChild(newSong)
-//     })
-// }
-
-
-
-
-// async function songlistview() {
-//     const response = await fetch('http://127.0.0.1:8000/songs/')
-//     .then((response) => response.json())
-//     .then((data) => console.log(data));
-// }
