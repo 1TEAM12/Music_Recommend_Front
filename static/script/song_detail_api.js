@@ -198,8 +198,6 @@ async function handleComment(){
     }
 }}
 
-
-
 async function updateComment(comment)  {
     let a;
     const comment_id = Number(comment.id)
