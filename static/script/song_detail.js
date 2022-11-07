@@ -3,10 +3,17 @@ let user_id = JSON.parse(token)
 const likeId = location.href.split('?')[1]
 console.log(likeId)
 
+
+
 //노래 GET
 async function SongDetailView(id){
+    let getLink = window.location.search;
+    let getLink_Name = getLink.split('=');
+    let getLink_result = getLink_Name[1]
+    let decodeResult = decodeURI(getLink_result);
+    console.log(decodeResult);
 
-    const response = await fetch(`${backendBaseUrl}/songs/${id}/`, {
+    const response = await fetch(`${backendBaseUrl}/songs/${decodeResult}/`, {
         method: 'GET',
         headers: {
             Accept: "application/json",
@@ -174,4 +181,30 @@ async function SongLike() {
         alert(response_json["msg"])
     }
     
+}
+
+
+// 좋아요 불러오기
+async function songlistview2() {
+    const response = await fetch('http://127.0.0.1:8000/1/song_like/', {
+        headers:{'content-type':'application/json'},
+        method:'GET',
+    })
+    response_json = await response.json()
+    console.log(response_json)
+    response_json.forEach(item => {
+        $('#like-card').append(
+            `<div class="d-flex align-items-center mb-4 ">
+            <div class="col-5">
+                <img src="assets/img/demo/v4.jpg" alt="Card image">
+            </div>
+            <div class="ml-3">
+                <a href="video-single.html">
+                    <h6 id="songs_title">Song Title</h6>
+                </a>
+                <small class="mt-1">Song Singer</small>
+            </div>
+        </div>`
+        )
+    });
 }

@@ -10,6 +10,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="static/style/css/song_detail_style.css">
+
 </head>
 
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader" style="display: none;">
@@ -66,14 +67,10 @@
     <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
         <div class="sidebar">
             <ul class="sidebar-menu">
-                <li><a class="ajaxifyPage active" href="recommend.html">
+                <li><a href="#" onclick="location.href='/song_rcm_list.html'">
                         <i class="icon icon-home-1 s-24"></i> <span>Home</span>
                     </a>
                 </li>
-                <li><a class="ajaxifyPage" href="recommend.html">
-                        <i class="icon icon-layers-1 s-24"></i> <span>Recommend_songs</span>
-                    </a>
-                <li>
                 <li><a class="ajaxifyPage" href="#">
                         <i class="icon icon-windows s-24"></i> <span>My Playlist</span>
                     </a>
@@ -196,6 +193,7 @@
                             <div class="d-lg-flex align-items-center">
                                 <img id="song_image" width="60px">&nbsp;&nbsp;
                                 <h1 id = "song_title" class="my-3 h4"><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_singer" class="my-3 h4"></h1><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_genre" class="my-3 h4"></h1>
+
                                 
                                 
                                 <div class="ml-auto pt-3 p-lg-0">
@@ -209,7 +207,10 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -310,61 +311,7 @@
                         <h6>Like</h6>
                     </div>
                    <div class="card-body">
-                       <div class="d-flex align-items-center mb-4 ">
-                           <div class="col-5">
-                               <img src="assets/img/demo/v4.jpg" alt="Card image">
-                           </div>
-                           <div class="ml-3">
-                               <a href="video-single.html">
-                                   <h6 id="songs_title"></h6>
-                               </a>
-                               <small class="mt-1">Song Singer</small>
-                           </div>
-                       </div>
-                       <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
