@@ -1,6 +1,6 @@
 window.onload = async function loadSongs(){
     let getLink = window.location.search;
-    let getLink_Name = getLink.split('=');
+    let getLink_Name = getLink.split('?');
     let getLink_result = getLink_Name[1]
     console.log(getLink_result)
 
