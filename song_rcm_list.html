@@ -10,9 +10,58 @@
     <title>오코완_home</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
+    <script src="./static/script/song_rcm_list_api.js"></script>
 </head>
 
+
+
+
+
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader">
+    <!-- Pre loader To disable preloader remove 'has-preloader' from body-->
+<div id="loader" class="loader">
+    <div class="loader-container">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- @Pre loader-->
     <div id="rekord-app">
         <!--Sidebar-->
         <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
@@ -118,7 +167,7 @@
                                                         <h1 class="s-64 mt-5 font-weight-lighter"">Ocowan Music</h1>
                                                         <p class="s-24 font-weight-lighter">듣고 싶은 노래를 선택해주세요</p>
                                                         <div class="pt-3">
-                                                            <a class="btn btn-primary btn-lg" onclick="songlistview2()">다시 검색하기</a>
+                                                            <button id="search" class="btn btn-primary btn-lg" onclick="songlistview2()">다시 검색하기</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,7 +186,306 @@
                         <div class="wrapper">
                             <div class="row has-items-overlay">
                                 <!--Song Card Object-->
-                                <div id='songs-box'></div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img id="image" src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div id='songs-box'>
+                                    <figure style="display: inline-block;margin:10px;">
+                                        <a href="http://127.0.0.1:8000/songs/{id}/recommend/">
+                                            <div class="img-wrapper">
+                                                <img src="{image}" style="width:300px;height:300px;"onerror="this.src='https://avatars.githubusercontent.com/u/114125954?s=200&v=4'">
+                                                <div class="img-overlay text-white text-center">
+                                                    <div class="figcaption mt-3">
+                                                        <i class="icon-link s-48"></i>
+                                                        
+                                                        <div id="SongCard" class="mt-5">
+                                                            <h5 id="title" class="mt-5""></h5>
+                                                        </div>
+                                                        <span id="id"></span>
+                                                        <span id="singer"></span>
+                                                        <div id="songs"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="figure-title text-center p-2" style="width:300px;">
+                                                    <h5 id="title"></h5>
+                                                    <span id="singer" style="width:300px;"></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
 
@@ -152,7 +500,7 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyC3YkZNNySdyR87o83QEHWglHfHD_PZqiw&libraries=places"></script>
     <script src="assets/js/app.js"></script>
-    <script src="./static/script/song_rcm_list_api.js"></script>
+
     <script src="./static/style/js/song_rcm_list_style.js"></script>
 
 

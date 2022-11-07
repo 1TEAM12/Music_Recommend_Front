@@ -9,9 +9,54 @@
     <title>Record</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
+    <script src="./static/script/song_rcm_api.js"></script>
 </head>
 
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader">
+    <!-- Pre loader To disable preloader remove 'has-preloader' from body-->
+<div id="loader" class="loader">
+    <div class="loader-container">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- @Pre loader-->
     <div id="rekord-app">
         <!--Sidebar-->
         <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
@@ -117,7 +162,7 @@
                                                         <h1 class="s-64 mt-5 font-weight-lighter"">Recommend</h1>
                                                         <p class="s-24 font-weight-lighter">좋아하실 만한 노래를 추천했어요</p>
                                                         <div class="pt-3">
-                                                            <a class="btn btn-primary btn-lg" href="song_rcm_list.html"">다시 검색하기</a>
+                                                            <button id="search" class="btn btn-primary btn-lg" style="search.click();" onclick="songrecommend()">다시 추천하기</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -152,7 +197,7 @@
         src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyC3YkZNNySdyR87o83QEHWglHfHD_PZqiw&libraries=places"></script>
     <script src="assets/js/app.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="./static/script/song_rcm_api.js"></script>
+
 
 
 

@@ -3,7 +3,7 @@ window.onload = () => {
 }
 
 
-
+const frontend_base_url = "https://gomunity.shop";
 
 
 function songrecommend() {
