@@ -164,23 +164,11 @@ async function SongLike() {
         },
     }
     )
-    
-    console.log(response_json.user)
     const a_heart_btn = document.getElementById("heartBtn")
-    console.log(a_heart_btn.style)
-    if (a_heart_btn.style.color == "red"){
-        a_heart_btn.style.color = 'gray'
-    } else{
-        a_heart_btn.style.color = 'red' 
-    }
-    // if (response_json.user.id == user_id.email){
-    //     a_heart_btn.innerHTML = '<i class="icon-heartbeat s-24 style="color:red;"></i>'
-    // } else {
-    //     a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:red;"></i>'
-    // }
 
     response_json = await response.json
     if (response.status == 200) {
+        window.location.reload()
         return
     }else {
         alert(response_json["msg"])
