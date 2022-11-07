@@ -9,17 +9,17 @@
     <title>Record</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
-    <script src="./static/script/song_rcm_api.js"></script>
+    <!--제이쿼리문-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/> -->
+
 </head>
 
-<<<<<<< HEAD
-<body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader">
-    <!-- Pre loader To disable preloader remove 'has-preloader' from body-->
-=======
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader" style="display: none;">
 <!-- Pre loader To disable preloader remove 'has-preloader' from body-->
 
->>>>>>> fd5e44e6e57c02c59f362bd5e78712ad6fbace1c
 <div id="loader" class="loader">
     <div class="loader-container">
         <div class="preloader-wrapper big active">
@@ -31,63 +31,6 @@
             </div><div class="circle-clipper right">
                 <div class="circle"></div>
             </div>
-<<<<<<< HEAD
-            </div>
-            <div class="spinner-layer spinner-red">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-            <div class="spinner-layer spinner-yellow">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-            <div class="spinner-layer spinner-green">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- @Pre loader-->
-    <div id="rekord-app">
-        <!--Sidebar-->
-        <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
-            <div class="sidebar">
-                <ul class="sidebar-menu">
-                    <li><a class="ajaxifyPage active" href="song_rcm_list.html">
-                            <i class="icon icon-home-1 s-24"></i> <span>Home</span>
-                        </a>
-                    </li>
-                    <li><a class="ajaxifyPage" href="song_rcm_list.html">
-                            <i class="icon icon-layers-1 s-24"></i> <span>recommend_songs</span>
-                        </a>
-                    <li>
-                    <li><a class="ajaxifyPage" href="#">
-                            <i class="icon icon-windows s-24"></i> <span>Playlist</span>
-                        </a>
-                    <li>
-                    <li><a class="ajaxifyPage" href="#">
-                            <i class="icon icon-video-player-2 s-24"></i> <span>Search</span>
-                        </a>
-                    </li>
-                </ul>
-=======
->>>>>>> fd5e44e6e57c02c59f362bd5e78712ad6fbace1c
             </div>
 
             <div class="spinner-layer spinner-red">
@@ -144,6 +87,8 @@
         </div>
     </aside>
 
+<!--Sidebar End-->
+
 <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
 <div class="control-sidebar-bg shadow  fixed"></div>
 <div class="searchOverlay page">
@@ -169,7 +114,6 @@
         </form>
     </div>
 </div>
-
 
 
 <!--navbar-->
@@ -201,7 +145,7 @@
         </li>
         <!-- User Account-->
         <li class="dropup custom-dropdown user user-menu ">
-            
+          
             <a href="#" class="nav-link" data-toggle="dropdown">
                 <figure class="avatar">
                     <img id="profile_image" > 
@@ -242,19 +186,38 @@
 </div>
     </div>
 </nav>
-        <!--@Page Content-->
+<!--Page Content-->
+<main id="pageContent" class="page has-sidebar">
+<div class="wrapper">
+<div class="container-fluid relative animatedParent animateOnce">
+        <div class="animated fadeInUpShort p-5 ml-lg-5 mr-lg-5">
+            <section>
+                <div class="relative my-5">
+                    <h1 class="mb-2 text-primary">Search Result</h1>
+                </div>
+                <div class="wrapper" id="album_wrapper">
+                    <div class="row has-items-overlay" id="articles">
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-    <!--@#rekord-app-->
-    <!--/#rekord-app -->
+</div>
+</main><!--@Page Content-->
+</div><!--@#rekord-app-->
+<!--/#rekord-app -->
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyC3YkZNNySdyR87o83QEHWglHfHD_PZqiw&libraries=places"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/app.js"></script>
-
-<script src="./static/script/song_rcm_api.js"></script>
-<script src="static/script/profile_api.js"></script>
 <script src="./static/script/search_api.js"></script>
+<script src="static/script/profile_api.js"></script>
 
 
 
+
+<script>
+    $(document).ready(function(){
+        searchParam();
+    })
+</script>
 </body>
 </html>
