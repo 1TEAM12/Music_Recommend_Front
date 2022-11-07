@@ -1,5 +1,7 @@
 const token = localStorage.getItem("payload");
 let user_id = JSON.parse(token)
+const likeId = location.href.split('?')[1]
+console.log(likeId)
 
 
 
@@ -158,9 +160,9 @@ async function updatecommentView(id, comment_id, comment){
 }
 
 //좋아요 POST
-async function SongLike(id) {
+async function SongLike() {
 
-    const response = await fetch(`${backendBaseUrl}/songs/${id}/song_like/`, {
+    const response = await fetch(`${backendBaseUrl}/songs/${likeId}/song_like/`, {
         method: 'POST',
         headers: {
             Accept:"application/json",
@@ -169,13 +171,16 @@ async function SongLike(id) {
         },
     }
     )
-    response_json = await response.json()
-    
+    const a_heart_btn = document.getElementById("heartBtn")
+
+    response_json = await response.json
     if (response.status == 200) {
+        window.location.reload()
         return
     }else {
         alert(response_json["msg"])
     }
+    
 }
 
 

@@ -9,6 +9,7 @@
     <title>Record</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="static/style/css/playlist_detail_style.css">
 </head>
 
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader" style="display: none;">
@@ -83,7 +84,6 @@
 
 <!--Sidebar End-->
 
-<!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
 <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
 <div class="control-sidebar-bg shadow  fixed"></div>
 <div class="searchOverlay page">
@@ -199,11 +199,23 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="d-md-flex align-items-center justify-content-between">
-                                    <h1 class="my-3 text-white ">My playlist 1</h1>
+                                    <h1 class="my-3 text-white " id="playlist_detail_title_1"></h1>
                                 </div>
-
                                 <div class="text-white my-2">
-                                    <p>My playlist content</p>
+                                    <p id="playlist_detail_content_1"></p>
+                                    <button class="btn btn-primary btn-lg" id="playlistupdate">Playlist Edit</button>
+                                    <div class="modal hidden">
+                                        <div class="modal__overlay"></div>
+                                        <div class="modal__content_2">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="playlist_title" placeholder=" 플레이리스트 제목을 입력해주세요"><p></p>
+                                                <textarea class="form-control r-0" id="playlist_content"rows="3" placeholder="플레이리스트 내용을 입력해주세요"></textarea><p></p>
+                                            </div>
+                                            <a class="btn btn-primary btn-lg" onclick="PlaylistDetailUpdate()">Edit</a>
+                                            <button id="playlist_close" class="btn btn-primary btn-lg">Close</button>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-primary btn-lg" onclick="PlaylistDetailDelete()">Playlist Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -222,115 +234,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="playlist">
-                                    <ul class="list-group">
-                                        <li class="list-group-item my-1">
-                                            <div class="d-flex align-items-center">
-                                                <div class="col-1">
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6>Song Title</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Singer</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Genre</h6>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item my-1">
-                                            <div class="d-flex align-items-center">
-                                                <div class="col-1">
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6>Song Title</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Singer</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Genre</h6>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item my-1">
-                                            <div class="d-flex align-items-center">
-                                                <div class="col-1">
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6>Song Title</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Singer</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Genre</h6>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item my-1">
-                                            <div class="d-flex align-items-center">
-                                                <div class="col-1">
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6>Song Title</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Singer</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Genre</h6>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item my-1">
-                                            <div class="d-flex align-items-center">
-                                                <div class="col-1">
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6>Song Title</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Singer</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Genre</h6>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item my-1">
-                                            <div class="d-flex align-items-center">
-                                                <div class="col-1">
-                                                </div>
-                                                <div class="col-6">
-                                                    <h6>Song Title</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Singer</h6>
-                                                </div>
-                                                <div class="col">
-                                                    <h6>Song Genre</h6>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                    <ul class="list-group" id="playlist_detail_content">
                                     </ul>
 
                                 </div>
@@ -352,6 +256,8 @@
 <script src="assets/js/app.js"></script>
 <script src="static/script/profile_api.js"></script>
 <script src="./static/script/search_api.js"></script>
+<script src="./static/script/playlist_api.js"></script>
+<script src="./static/style/js/playlist_detail_style.js"></script>
 
 
 </body>

@@ -9,6 +9,8 @@
     <title>Record</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="static/style/css/playlist_detail_style.css">
+
 </head>
 
 <body class="sidebar-mini sidebar-collapse theme-dark  sidebar-expanded-on-hover has-preloader" style="display: none;">
@@ -191,155 +193,25 @@
         <div class="animated fadeInUpShort p-5 ml-lg-5 mr-lg-5">
             <section>
                 <div class="relative my-5">
-                    <h1 class="mb-2 text-primary">My Playlist</h1>
+                    <h1 class="mb-2 text-primary" style="display:inline-block;">My Playlist</h1>
+                    <button class="btn btn-primary btn-lg" style="display:inline-block; position:relative; left:5%;" id="playlistupdate">Playlist Plus</button>
+                    <div class="modal hidden">
+                        <div class="modal__overlay"></div>
+                        <div class="modal__content_1">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="playlist_title" placeholder=" 플레이리스트 제목을 입력해주세요"><p></p>
+                                <textarea class="form-control r-0" id="playlist_content" rows="3" placeholder="플레이리스트 내용을 입력해주세요"></textarea><p></p>
+                            </div>
+                            <a class="btn btn-primary btn-lg" onclick="PlaylistDetailCreate()" >Confirm</a>
+                            <button id="playlist_close" class="btn btn-primary btn-lg">Close</button>
+                        </div>
+                    </div>
+                    
                     <p> Recently added playlist <br>
                 </div>
                 <div class="wrapper">
-                    <div class="row has-items-overlay">
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                            <figure>
-                                <div class="img-wrapper">
-                                    <img src="assets/img/demo/a1.jpg" alt="/">
-                                    <div class="img-overlay text-white text-center">
-                                        <a href="album-single.html">
-                                            <div class="figcaption mt-3">
-                                                <i class="icon-link s-48"></i>
-                                                <h5 class="mt-5">My Playlist 1</h5>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="figure-title text-center p-2">
-                                        <h5>My Playlist 1</h5>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
+                    <div class="row has-items-overlay" id="playlist">
+
                     </div>
                 </div>
             </section>
@@ -353,6 +225,9 @@
 <script src="assets/js/app.js"></script>
 <script src="static/script/profile_api.js"></script>
 <script src="./static/script/search_api.js"></script>
+<script src="./static/script/playlist_api.js"></script>
+<script src="./static/style/js/playlist_detail_style.js"></script>
+
 
 </body>
 </html>
