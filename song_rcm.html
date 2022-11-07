@@ -67,11 +67,11 @@
     <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
         <div class="sidebar">
             <ul class="sidebar-menu">
-                <li><a class="ajaxifyPage active" href="song_rcm_list.html">
+                <li><a href="song_rcm_list.html">
                         <i class="icon icon-home-1 s-24"></i> <span>Home</span>
                     </a>
                 </li>
-                <li><a class="ajaxifyPage" href="song_rcm_list.html">
+                <li><a href="song_rcm_list.html">
                         <i class="icon icon-layers-1 s-24"></i> <span>Recommend_songs</span>
                     </a>
                 <li>
@@ -127,124 +127,103 @@
             </a>
         </div>
 
-<!--Top Menu Start -->
-<div class="navbar-custom-menu">
-    <ul class="nav navbar-nav">
-        Nickname: <h6 id="profile_nickname" ></h6>
-        Email: <h6 id="profile_email" ></h6>
+        <!--Top Menu Start -->
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                Nickname: <h6 id="profile_nickname" ></h6>
+                Email: <h6 id="profile_email" ></h6>
 
-        <!-- Right Sidebar Toggle Button -->
-        <li class="searchOverlay-wrap">
-            <a href="#" id="btn-searchOverlay" class="nav-link mr-3 btn--searchOverlay no-ajaxy">
-                <i class="icon icon-search s-24"></i>
-            </a>
+                <!-- Right Sidebar Toggle Button -->
+                <li class="searchOverlay-wrap">
+                    <a href="#" id="btn-searchOverlay" class="nav-link mr-3 btn--searchOverlay no-ajaxy">
+                        <i class="icon icon-search s-24"></i>
+                    </a>
 
-        </li>
-        <!-- User Account-->
-        <li class="dropup custom-dropdown user user-menu ">
-            
-            <a href="#" class="nav-link" data-toggle="dropdown">
-                <figure class="avatar">
-                    <img id="profile_image" > 
-                </figure>
-                <i class="icon-more_vert "></i>
-            </a>
-            <div class="dropdown-menu p-4 dropdown-menu-right">
-                <div class="row box justify-content-between my-4">
-                    <div class="col text-center">
-                        <a class="ajaxifyPage" onclick="ProfileEditNewTab()">
-                            <i class="icon-user-4  s-24"></i>
-                            <div class="pt-1">Edit</div>
-                        </a>
+                </li>
+                <!-- User Account-->
+                <li class="dropup custom-dropdown user user-menu ">
+                    
+                    <a href="#" class="nav-link" data-toggle="dropdown">
+                        <figure class="avatar">
+                            <img id="profile_image" > 
+                        </figure>
+                        <i class="icon-more_vert "></i>
+                    </a>
+                    <div class="dropdown-menu p-4 dropdown-menu-right">
+                        <div class="row box justify-content-between my-4">
+                            <div class="col text-center">
+                                <a class="ajaxifyPage" onclick="ProfileEditNewTab()">
+                                    <i class="icon-user-4  s-24"></i>
+                                    <div class="pt-1">Edit</div>
+                                </a>
+                            </div>
+                            <div class="col text-center">
+                                <a class="ajaxifyPage" onclick="withdrawal()">
+                                    <i class="icon-multiply  s-24"></i>
+                                    <div class="pt-1">Delete</div>
+                                </a>
+                            </div>
+                            <div class="col text-center">
+                                <a class="ajaxifyPage" onclick="ChangePasswordNewTab()">
+                                    <i class="icon-lock-1  s-24"></i>
+                                    <div class="pt-1">Change</div>
+                                </a>
+                            </div>
+                            <div class="col text-center">
+                                <a class="ajaxifyPage" onclick="handleLogout()">
+                                    <i class="icon-unlocked-1  s-24"></i>
+                                    <div class="pt-1">Logout</div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col text-center">
-                        <a class="ajaxifyPage" onclick="withdrawal()">
-                            <i class="icon-multiply  s-24"></i>
-                            <div class="pt-1">Delete</div>
-                        </a>
-                    </div>
-                    <div class="col text-center">
-                        <a class="ajaxifyPage" onclick="ChangePasswordNewTab()">
-                            <i class="icon-lock-1  s-24"></i>
-                            <div class="pt-1">Change</div>
-                        </a>
-                    </div>
-                    <div class="col text-center">
-                        <a class="ajaxifyPage" onclick="handleLogout()">
-                            <i class="icon-unlocked-1  s-24"></i>
-                            <div class="pt-1">Logout</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-        </li>
-    </ul>
-</div>
+                    
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
 
-        <!--Page Content-->
-        <main id="pageContent" class="page has-sidebar">
-            <div class="container-fluid relative animatedParent animateOnce no-p">
-                <div class="animated fadeInUpShort">
-                    <!--Banner Slider-->
-                    <section>
-                        <div class="text-white">
-                            <div class="lightSlider" data-item="1" data-controls="true" data-slide-margin="0"
-                                data-gallery="false" data-pause="8000" data-pauseonhover="true" data-auto="false"
-                                data-pager="false" data-loop="true">
-                                <div class="xv-slide" data-bg-possition="top"
-                                    style="background-image:url('assets/img/demo/b1.jpg');height:300px;">
-                                    <div class="wrapper has-bottom-gradient" style="padding-top:100px;">
-                                        <p id="result_title"></p>
-                                        <p style="text-align:center;font-size:30px;font-weight: bold;">가장 유사한 노래 20가지를 추천해드립니다.</p>
-                                        
-                                        <div class="pt-3" style="text-align:center">
-                                            <a class="btn btn-primary btn-lg" href="song_rcm_list.html">다시 검색하기</a>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-gradient"></div>
+<!--Page Content-->
+<main id="pageContent" class="page has-sidebar">
+    <div class="container-fluid relative animatedParent animateOnce no-p">
+        <div class="animated fadeInUpShort">
+            <!--Banner Slider-->
+            <section>
+                <div class="text-white">
+                    <div class="lightSlider" data-item="1" data-controls="true" data-slide-margin="0"
+                        data-gallery="false" data-pause="8000" data-pauseonhover="true" data-auto="false"
+                        data-pager="false" data-loop="true">
+                        <div class="xv-slide" data-bg-possition="top"
+                            style="background-image:url('assets/img/demo/b1.jpg');height:300px;">
+                            <div class="wrapper has-bottom-gradient" style="padding-top:100px;">
+                                <p id="result_title"></p>
+                                <p style="text-align:center;font-size:30px;font-weight: bold;">가장 유사한 노래 20가지를 추천해드립니다.</p>
+                                <div class="pt-3" style="text-align:center">
+                                    <a class="btn btn-primary btn-lg" href="song_rcm_list.html">다시 검색하기</a>
                                 </div>
                             </div>
+                            <div class="bottom-gradient"></div>
                         </div>
-                        <!--slider Wrap-->
-                    </section>
-                    <!--@Banner Slider-->
+                    </div>
+                </div>
+            </section>
 
-
-                    <!--New Releases-->
             <section class="section">
-                <div class="wrapper p-md-5 p-3  ">
+                <div class="wrapper p-md-5 p-3" style="text-align:center;">
                     <div class="wrapper">
                         <div class="row has-items-overlay">
                             <!--Song Card Object-->
                             <div id='rcm-box'></div>
                         </div>
                     </div>
-
                 </div>
             </section>
-            <!--@New Releases-->
-
-
-
-                    <div class="wrapper p-md-5 p-3  ">
-                        <div class="wrapper">
-                            <div class="row has-items-overlay">
-                                <!--Song Card Object-->
-                                <div id='songs-box'></div>
-                                
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </main>
-        <!--@Page Content-->
+        </div>
+    </div>
+</main>
+<!--@Page Content-->
     </div>
     <!--@#rekord-app-->
     <!--/#rekord-app -->
