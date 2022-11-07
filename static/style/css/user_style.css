@@ -14,7 +14,7 @@ body {
   align-items: center;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  background-color: #ecf0f3;
+  background-color: #131722;
   color: #a0a5a8;
 }
 
@@ -26,8 +26,8 @@ body {
   min-height: 600px;
   height: 600px;
   padding: 25px;
-  background-color: #ecf0f3;
-  box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+  background-color:#0C101B;
+  box-shadow: 10px 10px 10px #7A848C, -10px -10px 10px #7A848C;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -61,7 +61,7 @@ body {
   width: 600px;
   height: 100%;
   padding: 25px;
-  background-color: #ecf0f3;
+  background-color: #0C101B;
   transition: 1.25s;
 }
 
@@ -95,20 +95,25 @@ body {
   border: none;
   outline: none;
   font-family: "Montserrat", sans-serif;
-  background-color: #ecf0f3;
+  background-color: #0C101B;
   transition: 0.25s ease;
   border-radius: 8px;
-  box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
+  box-shadow: inset 2px 2px 4px #7A848C, inset -2px -2px 4px #7A848C;
 }
+
+.input::placeholder {
+  color:#7A848C;
+}
+
 .form__input:focus {
-  box-shadow: inset 4px 4px 4px #d1d9e6, inset -4px -4px 4px #f9f9f9;
+  box-shadow: inset 4px 4px 4px #7A848C, inset -4px -4px 4px #7A848C;
 }
 .form__span {
   margin-top: 30px;
   margin-bottom: 12px;
 }
 .form__link {
-  color: #181818;
+  color: #7A848C;
   font-size: 15px;
   margin-top: 25px;
   border-bottom: 1px solid #a0a5a8;
@@ -119,7 +124,7 @@ body {
   font-size: 34px;
   font-weight: 700;
   line-height: 3;
-  color: #181818;
+  color: #7A848C;
 }
 
 .description {
@@ -137,9 +142,9 @@ body {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.15px;
-  background-color: #4B70E2;
-  color: #f9f9f9;
-  box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
+  background-color: #FF1744;
+  color: #FBFBFB;
+  box-shadow: 8px 8px 16px #0C101B, -8px -8px 16px #0C101B;
   border: none;
   outline: none;
 }
@@ -167,17 +172,17 @@ body {
   padding: 50px;
   z-index: 200;
   transition: 1.25s;
-  background-color: #ecf0f3;
+  background-color: #0C101B;
   overflow: hidden;
-  box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #f9f9f9;
+  box-shadow: 4px 4px 10px #7A848C, -4px -4px 10px #7A848C;
 }
 .switch__circle {
   position: absolute;
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background-color: #ecf0f3;
-  box-shadow: inset 8px 8px 12px #d1d9e6, inset -8px -8px 12px #f9f9f9;
+  background-color: #0C101B;
+  box-shadow: inset 8px 8px 12px #7A848C, inset -8px -8px 12px #7A848C;
   bottom: -60%;
   left: -60%;
   transition: 1.25s;
@@ -202,12 +207,12 @@ body {
   cursor: pointer;
 }
 .switch__button:hover {
-  box-shadow: 6px 6px 10px #d1d9e6, -6px -6px 10px #f9f9f9;
+  box-shadow: 6px 6px 10px #7A848C, -6px -6px 10px #7A848C;
   transform: scale(0.985);
   transition: 0.25s;
 }
 .switch__button:active, .switch__button:focus {
-  box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #f9f9f9;
+  box-shadow: 2px 2px 6px #7A848C, -2px -2px 6px #7A848C;
   transform: scale(0.97);
   transition: 0.25s;
 }
@@ -216,12 +221,12 @@ body {
   cursor: pointer;
 }
 .form__button:hover {
-  box-shadow: 6px 6px 10px #d1d9e6, -6px -6px 10px #f9f9f9;
+  box-shadow: 6px 6px 10px #7A848C, -6px -6px 10px #7A848C;
   transform: scale(0.985);
   transition: 0.25s;
 }
 .form__button:active, .form__button:focus {
-  box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #f9f9f9;
+  box-shadow: 2px 2px 6px #7A848C, -2px -2px 6px #7A848C;
   transform: scale(0.97);
   transition: 0.25s;
 }
@@ -265,9 +270,8 @@ body {
 }
 
 .alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
+  color: #ff1744;
+  background-color: #0C101B;
   display: none;
 }
 
