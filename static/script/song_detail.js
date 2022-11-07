@@ -1,5 +1,7 @@
 const token = localStorage.getItem("payload");
 let user_id = JSON.parse(token)
+const likeId = location.href.split('?')[1]
+console.log(likeId)
 
 //노래 GET
 async function SongDetailView(id){
@@ -151,9 +153,9 @@ async function updatecommentView(id, comment_id, comment){
 }
 
 //좋아요 POST
-async function SongLike(id) {
+async function SongLike() {
 
-    const response = await fetch(`${backendBaseUrl}/songs/${id}/song_like/`, {
+    const response = await fetch(`${backendBaseUrl}/songs/${likeId}/song_like/`, {
         method: 'POST',
         headers: {
             Accept:"application/json",
@@ -162,11 +164,26 @@ async function SongLike(id) {
         },
     }
     )
-    response_json = await response.json()
     
+    console.log(response_json.user)
+    const a_heart_btn = document.getElementById("heartBtn")
+    console.log(a_heart_btn.style)
+    if (a_heart_btn.style.color == "red"){
+        a_heart_btn.style.color = 'gray'
+    } else{
+        a_heart_btn.style.color = 'red' 
+    }
+    // if (response_json.user.id == user_id.email){
+    //     a_heart_btn.innerHTML = '<i class="icon-heartbeat s-24 style="color:red;"></i>'
+    // } else {
+    //     a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:red;"></i>'
+    // }
+
+    response_json = await response.json
     if (response.status == 200) {
         return
     }else {
         alert(response_json["msg"])
     }
+    
 }

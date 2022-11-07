@@ -1,26 +1,6 @@
-window.onload = async function loadSongs(){
-    let getLink = window.location.search;
-    let getLink_Name = getLink.split('=');
-    let getLink_result = getLink_Name[1]
-    console.log(getLink_result)
-
-
-
-    const response = await fetch(`http://127.0.0.1:8000/songs/${getLink_result}/`, { 
-        method: 'GET',
-        headers: {
-            Accept: "application/json",
-            "Content-type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-            }})
-    
-    response_json = await response.json() 
-
-    console.log(response_json)
-}
-
 const songId = location.href.split('?')[1]
 const commentId = location.href.split('?')[1]
+
 
 // 댓글시간 나타내기
 function time2str(date) {
@@ -40,24 +20,32 @@ function time2str(date) {
     }
     return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`
 };
-
 // 노래 상세정보
  async function loadSongs(){
-
+    
     const song_detail = await SongDetailView(songId)
-   
+    console.log(song_detail.song_likes)
+    console.log(user_id.email)
     const h1_song_title = document.getElementById("song_title")
     const h1_song_singer = document.getElementById("song_singer")
     const h1_song_genre = document.getElementById("song_genre")
-    
+    const a_heart_btn = document.getElementById("heartBtn")
+
     h1_song_title.innerText = song_detail.title
     h1_song_singer.innerText = song_detail.singer
     h1_song_genre.innerText = song_detail.genre
+
+    if (song_detail.song_likes.indexOf(user_id.email)){
+        a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:red;"></i>'
+    } else {
+        a_heart_btn.innerHTML = '<i class="icon-heart s-24"></i>'
+    }
+
     document.getElementById("song_image").src = song_detail.image
 
     const h6_song_lyrics = document.getElementById("song_lyrics")
     const span_song_likes = document.getElementById("song_likes")
-    
+
     span_song_likes.innerText = song_detail.song_likes_count
     h6_song_lyrics.innerText = song_detail.lyrics
      
@@ -90,7 +78,7 @@ async function loadComments(){
         //프로필이미지
         const newCommentUserImage = document.createElement("img")
         let profile_image = comment_detail['results'][i]['profile_image']
-        newCommentUserImage.setAttribute("src", `${backendBaseUrl}/${profile_image}` )
+        newCommentUserImage.setAttribute("src", `${backendBaseUrl}${profile_image}` )
         newCommentUserImage.setAttribute("class", "avatar avatar-md mr-3 mt-1" )
         newCommentUserInfo.append(newCommentUserImage)        
 
@@ -171,7 +159,7 @@ async function handleComment(){
         //프로필이미지
         const newCommentUserImage = document.createElement("img")
         let profile_image = comment_detail['results'][0]['profile_image']
-        newCommentUserImage.setAttribute("src", `${backendBaseUrl}/${profile_image}` )
+        newCommentUserImage.setAttribute("src", `${backendBaseUrl}${profile_image}` )
         newCommentUserImage.setAttribute("class", "avatar avatar-md mr-3 mt-1" )
         newCommentUserInfo.append(newCommentUserImage)
 
