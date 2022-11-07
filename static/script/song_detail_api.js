@@ -1,3 +1,24 @@
+window.onload = async function loadSongs(){
+    let getLink = window.location.search;
+    let getLink_Name = getLink.split('=');
+    let getLink_result = getLink_Name[1]
+    console.log(getLink_result)
+
+
+
+    const response = await fetch(`http://127.0.0.1:8000/songs/${getLink_result}/`, { 
+        method: 'GET',
+        headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+            }})
+    
+    response_json = await response.json() 
+
+    console.log(response_json)
+}
+
 const songId = location.href.split('?')[1]
 const commentId = location.href.split('?')[1]
 
@@ -24,7 +45,7 @@ function time2str(date) {
  async function loadSongs(){
 
     const song_detail = await SongDetailView(songId)
-    
+   
     const h1_song_title = document.getElementById("song_title")
     const h1_song_singer = document.getElementById("song_singer")
     const h1_song_genre = document.getElementById("song_genre")
