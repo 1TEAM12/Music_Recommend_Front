@@ -177,3 +177,29 @@ async function SongLike(id) {
         alert(response_json["msg"])
     }
 }
+
+
+// 좋아요 불러오기
+async function songlistview2() {
+    const response = await fetch('http://127.0.0.1:8000/1/song_like/', {
+        headers:{'content-type':'application/json'},
+        method:'GET',
+    })
+    response_json = await response.json()
+    console.log(response_json)
+    response_json.forEach(item => {
+        $('#like-card').append(
+            `<div class="d-flex align-items-center mb-4 ">
+            <div class="col-5">
+                <img src="assets/img/demo/v4.jpg" alt="Card image">
+            </div>
+            <div class="ml-3">
+                <a href="video-single.html">
+                    <h6 id="songs_title">Song Title</h6>
+                </a>
+                <small class="mt-1">Song Singer</small>
+            </div>
+        </div>`
+        )
+    });
+}
