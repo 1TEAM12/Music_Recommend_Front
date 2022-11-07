@@ -196,7 +196,7 @@
                                 <img id="song_image" width="60px">&nbsp;&nbsp;</img>
                                 <h1 id = "song_title" class="my-3 h4"><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_singer" class="my-3 h4"></h1><h1 class="my-3 h4">&nbsp;|&nbsp;</h1><h1 id="song_genre" class="my-3 h4"></h1>
                                 <div class="ml-auto">
-                                    <a onclick="SongLike()" class="heartBtn" ><i class="icon-heart s-24"></i></a>
+                                    <a onclick="SongLike()" class="heartBtn" ><i class="icon-heart s-24" style="color:red;" id="hearticon"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                             <div>
                                 <div class="p-5">
                                     <h5 class="font-weight-normal s-14">Voice</h5>
-                                    <span class="s-48 font-weight-lighter amber-text">1000</span>
+                                    <span id="voices_count" class="s-48 font-weight-lighter amber-text"></span>
                                 </div>
                             </div>
                             <div>
@@ -291,71 +291,52 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card pt-3">
-                    <div class="card-header">
-                        <h6>Like</h6>
-                    </div>
-                   <div class="card-body">
-                       <div class="d-flex align-items-center mb-4 ">
-                           <div class="col-5">
-                               <img src="assets/img/demo/v4.jpg" alt="Card image">
-                           </div>
-                           <div class="ml-3">
-                               <a href="video-single.html">
-                                   <h6 id="songs_title"></h6>
-                               </a>
-                               <small class="mt-1">Song Singer</small>
-                           </div>
-                       </div>
-                       <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
+
+                <!-- 모창 등록 -->
+                <div class="card mt-1 mb-5">
+                    <div class="card-body">
+                        <div class="media my-5 " id="airticle1">
+                            <div class="media-body">
+                                <input type=checkbox id="chk-hear-mic"><label for="chk-hear-mic">마이크 소리 듣기</label>
+                                <button id="record">녹음</button>
+                                <button id="stop">정지</button>
+                                <div id="sound-clips">
+                                    <article id="clipContainer"></article>
+                                </div>
+                                <hr>
+                                <div>
+                                    <form id="testForm">
+                                        <input type="file" id="mp-file-upload" accept="audio/*" />
+                                    </form> 
+                                    <button class="btn btn-primary btn-sm shadow-none" type="button" onclick="mpload()">
+                                        Post voice
+                                    </button>
+                                </div>
+                                <div class="one-voice" style="margin-top:20px;">
+                                    <audio id="audioContainer">
+                                        <source id="audioSource" src="" />
+                                    </audio>
+                                    <div class="js-onOffWrap"></div>
+                                        <button class="js-playBtn"></button>
+                                        <button class="js-stopBtn"></button>
+                                    </div> 
+                                     
+                                </div>                          
                             </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4 ">
-                            <div class="col-5">
-                                <img src="assets/img/demo/v4.jpg" alt="Card image">
-                            </div>
-                            <div class="ml-3">
-                                <a href="video-single.html">
-                                    <h6>Song Title</h6>
-                                </a>
-                                <small class="mt-1">Song Singer</small>
-                            </div>
+                            <!-- <form class="bg-light p-2">
+                                <div class="d-flex flex-row align-items-start"><textarea
+                                        class="form-control ml-1 shadow-none textarea" id="voice-text"></textarea></div>
+                                <div class="mt-2 text-right">
+                                    <button class="btn btn-primary btn-sm shadow-none" type="button" onclick="handleComment()">
+                                        Post comment
+                                    </button>
+                                </div>
+                            </form> -->
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
 
     </div>
@@ -371,6 +352,11 @@
 <script src="./static/script/song_detail_api.js"></script>
 <script src="./static/style/js/song_detail_style.js"></script>
 <script src="./static/script/search_api.js"></script>
+<script src="./static/script/user_detail_api.js"></script>
+
+<script src="js/WebAudioRecorder.min.js"></script>
+<script src="js/app.js"></script>
+
 
 </body>
 </html>
