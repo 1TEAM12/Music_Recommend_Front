@@ -53,7 +53,7 @@ if (navigator.mediaDevices) {
             }
 
             mediaRecorder.onstop = e => {
-
+                
                 const clipContainer = document.createElement('article')
                 const clipLabel = document.createElement('p')
                 const audio = document.createElement('audio')
@@ -62,6 +62,14 @@ if (navigator.mediaDevices) {
                 clipContainer.classList.add('clip')
                 audio.setAttribute('controls', '')
                 deleteButton.innerHTML = "삭제"
+
+
+                while (clipContainer.firstChild) {
+                    clipContainer.removeChild(clipContainer.firstChild)
+                }
+                while (soundClips.firstChild) {
+                    soundClips.removeChild(soundClips.firstChild)
+                }
 
                 clipContainer.appendChild(audio)
                 clipContainer.appendChild(clipLabel)
@@ -75,7 +83,22 @@ if (navigator.mediaDevices) {
                 chunks = []
                 const audioURL = URL.createObjectURL(blob)
                 audio.src = audioURL
+
+                const fileName = '녹음파일.mp3'
+                const link = document.createElement('a')
+                link.href = audioURL
+                link.download = fileName
+                link.click()
+                link.remove()
+
                 console.log("recorder stopped")
+
+
+                
+
+                setDisabled(false);
+                setSound(sound);
+
 
                 deleteButton.onclick = e => {
                     evtTgt = e.target
@@ -91,3 +114,5 @@ if (navigator.mediaDevices) {
             console.log('The following error occurred: ' + err)
         })
 }
+
+

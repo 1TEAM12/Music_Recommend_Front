@@ -81,5 +81,7 @@ function enterkey(e) {
 
 function move_detail_page(click_id){ 
     console.log(click_id)
+
     window.location.href = `/song_detail.html?$id=${click_id}`;
+
 }

@@ -6,7 +6,7 @@ window.onload = async function loadSongs(){
 
 
 
-    const response = await fetch(`http://127.0.0.1:8000/songs/${getLink_result}/`, { 
+    const response = await fetch(`http://127.0.0.1:8000/songs?${getLink_result}/`, { 
         method: 'GET',
         headers: {
             Accept: "application/json",
@@ -21,6 +21,7 @@ window.onload = async function loadSongs(){
 
 const songId = location.href.split('?')[1]
 const commentId = location.href.split('?')[1]
+const voiceId = location.href.split('?')[1]
 
 
 // 댓글시간 나타내기
@@ -42,8 +43,8 @@ function time2str(date) {
     return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`
 };
 // 노래 상세정보
- async function loadSongs(){
-    
+
+async function loadSongs(){
     const song_detail = await SongDetailView(songId)
     console.log(song_detail.song_likes)
     console.log(user_id.email)
@@ -55,6 +56,7 @@ function time2str(date) {
     h1_song_title.innerText = song_detail.title
     h1_song_singer.innerText = song_detail.singer
     h1_song_genre.innerText = song_detail.genre
+
 
     if (song_detail.song_likes.indexOf(user_id.email)){
         a_heart_btn.innerHTML = '<i class="icon-heart s-24" style="color:red;"></i>'
@@ -69,7 +71,6 @@ function time2str(date) {
 
     span_song_likes.innerText = song_detail.song_likes_count
     h6_song_lyrics.innerText = song_detail.lyrics
-     
 
 }
 
@@ -82,11 +83,12 @@ async function loadComments(){
 
     span_comments_count.innerText = comment_detail.count
     
+
     for (let i = 0; i < comment_detail['results'].length; i++) {
 
         const newCommentLayout = document.createElement("div")
         newCommentLayout.setAttribute("class", "bg-white p-2")
-        auctionComments.prepend(newCommentLayout)
+        auctionComments.append(newCommentLayout)
 
         const newCommentUser = document.createElement("div")
         newCommentUser.setAttribute("class", "d-flex flex-row user-info")
@@ -149,8 +151,124 @@ async function loadComments(){
     }
 }}
 
+//모창 전체정보
+async function loadVoices(){
+    
+    const voice_detail = await VoiceDetailView(voiceId)
+    console.log(voice_detail)
+    const auctionVoices = document.getElementsByClassName("one-voice")[0]
+    const span_voice_count = document.getElementById("voices_count")
+
+    span_voice_count.innerText = voice_detail.count
+
+    
+    for (let i = 0; i < voice_detail['results'].length; i++) {
+
+        const newVoiceLayout = document.createElement("div")
+        newVoiceLayout.setAttribute("class", "bg-white p-2")
+        auctionVoices.prepend(newVoiceLayout)
+
+        const newVoiceUser = document.createElement("div")
+        newVoiceUser.setAttribute("class", "d-flex flex-row user-info")
+        newVoiceLayout.append(newVoiceUser)
+
+        const newVoiceUserInfo = document.createElement("div")
+        newVoiceUserInfo.setAttribute("class", "d-flex flex-column justify-content-start ml-2")
+        newVoiceUser.append(newVoiceUserInfo)
+
+        const audioContainer = document.querySelector('#audioContainer')
+        newVoiceUserInfo.append(audioContainer)
+
+
+        
+        //프로필이미지
+        const newVoiceUserImage = document.createElement("img")
+        let profile_image = voice_detail['results'][i]['profile_image']
+        newVoiceUserImage.setAttribute("src", `${backendBaseUrl}/${profile_image}` )
+        newVoiceUserImage.setAttribute("class", "avatar avatar-md mr-3 mt-1" )
+        newVoiceUserInfo.append(newVoiceUserImage)        
+
+        //유저닉네임
+        const newVoiceUserName = document.createElement("span")
+        newVoiceUserName.setAttribute("class", "d-block font-weight-bold name")
+        newVoiceUserName.innerText = voice_detail['results'][i]['user']
+        newVoiceUserInfo.append(newVoiceUserName)
+
+        
+        //모창 등록 시간
+        const newVoiceTime = document.createElement("span")
+        newVoiceTime.setAttribute("class", "date text-black-50")
+
+        let time_post = new Date(voice_detail['results'][i]['created_at'])
+        let time_before = time2str(time_post)
+
+        newVoiceTime.innerText = time_before
+        newVoiceUserInfo.append(newVoiceTime)
+
+        // 모창 재생
+        const newVoice = document.createElement("audio")
+        let currentAudio = voice_detail['results'][i]['recode'].split('/')[3]
+        newVoice.setAttribute("class", "mt-2")
+        newVoice.setAttribute("src", `${backendBaseUrl}/media/voice_record/${currentAudio}` )
+        newVoiceLayout.append(newVoice)
+        console.log(audioContainer)
+
+        
+        function playAudio() {
+        audioContainer.volume = 0.2;
+        audioContainer.loop = true;
+        audioContainer.play();
+        }
+
+        function stopAudio() {
+        audioContainer.pause();  
+        }
+
+
+        function loadAudio() {
+        let source = document.querySelector('#audioSource');
+        let currentAudio = voice_detail['results'][i]['recode'].split('/')[3]
+
+        console.log(currentAudio)
+        source.src = `${backendBaseUrl}/media/voice_record/${currentAudio}`
+        audioContainer.load();
+        playAudio();
+        }
+
+        const newvoiceBtn = document.createElement("button")
+        newvoiceBtn.setAttribute("class", "voice-play")
+        newvoiceBtn.setAttribute("id", voice_detail['results'][i]['id'])
+        // newvoiceBtn.setAttribute("onclick", "loadAudio(this)")
+        newvoiceBtn.onclick = ()=> loadAudio(currentAudio,this);
+        newvoiceBtn.innerText = "♬ Play Music"
+        newVoiceUser.append(newvoiceBtn)
+
+
+        const newstopBtn = document.createElement("button")
+        newstopBtn.setAttribute("class", "voice-play")
+        newstopBtn.setAttribute("id", voice_detail['results'][i]['id'])
+        newstopBtn.onclick = ()=> stopAudio(currentAudio,this);
+        newstopBtn.innerText = "♬ stop Music"
+        newVoiceUser.append(newstopBtn)
+
+
+        //삭제 버튼
+        if(voice_detail['results'][i]['user'] == user_id['nickname'] ){
+        const newDeleteBtn = document.createElement("button")
+        newDeleteBtn.setAttribute("class", "voice-delete")
+        newDeleteBtn.setAttribute("id", voice_detail['results'][i]['id'])
+        newDeleteBtn.setAttribute("onclick", "deleteVoice(this)")
+        newDeleteBtn.innerText = "삭제"
+        newVoiceUser.append(newDeleteBtn)
+
+
+    }
+}
+}
+
 loadSongs()
 loadComments()
+loadVoices()
 
 async function handleComment(){
 
@@ -228,8 +346,6 @@ async function handleComment(){
     }
 }}
 
-
-
 async function updateComment(comment)  {
     let a;
     const comment_id = Number(comment.id)
@@ -252,3 +368,9 @@ async function deleteComment(comment) {
     console.log(commentArea)
     commentArea.remove();
 }
+
+async function deleteVoice(voice) {
+    const voiceId = voice.id
+    await deletevoiceView(songId, voiceId)
+}
+
