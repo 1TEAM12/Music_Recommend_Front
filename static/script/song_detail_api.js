@@ -89,7 +89,7 @@ async function loadComments(){
     for (let i = 0; i < comment_detail.length; i++) {
 
         const newCommentLayout = document.createElement("div")
-        newCommentLayout.setAttribute("class", "bg-white p-2")
+        newCommentLayout.setAttribute("style", "background-color:#0C101B;")
         auctionComments.append(newCommentLayout)
 
         const newCommentUser = document.createElement("div")
@@ -116,7 +116,7 @@ async function loadComments(){
         
         //댓글단 시간
         const newCommentTime = document.createElement("span")
-        newCommentTime.setAttribute("class", "date text-black-50")
+        newCommentTime.setAttribute("class", "d-block font-weight name")
 
         let time_post = new Date(comment_detail[i]['created_at'])
         let time_before = time2str(time_post)
@@ -137,18 +137,18 @@ async function loadComments(){
         //삭제 버튼
         if(comment_detail[i]['user'] == user_id['nickname'] ){
         const newDeleteBtn = document.createElement("button")
-        newDeleteBtn.setAttribute("class", "comment-delete")
+        newDeleteBtn.setAttribute("class", "s-24 text-primary icon-remove")
+        newDeleteBtn.setAttribute("style", "background-color:#0C101B; border:none;")
         newDeleteBtn.setAttribute("id", comment_detail[i]['id'])
         newDeleteBtn.setAttribute("onclick", "deleteComment(this)")
-        newDeleteBtn.innerText = "삭제"
         newCommentUser.append(newDeleteBtn)
 
         //수정 버튼
         const newUpdateBtn = document.createElement("button")
-        newUpdateBtn.setAttribute("class", "comment-update")
+        newUpdateBtn.setAttribute("class", "s-24 text-primary icon-exchange")
+        newUpdateBtn.setAttribute("style", "background-color:#0C101B; border:none;")
         newUpdateBtn.setAttribute("id", comment_detail[i]['id'])
         newUpdateBtn.setAttribute("onclick", `updateComment(this)`)
-        newUpdateBtn.innerText = "수정"
         newCommentUser.append(newUpdateBtn)
     }
 }}
@@ -166,7 +166,7 @@ async function loadVoices(){
     for (let i = 0; i < voice_detail.length; i++) {
 
         const newVoiceLayout = document.createElement("div")
-        newVoiceLayout.setAttribute("class", "bg-white p-2")
+        newVoiceLayout.setAttribute("style", "background-color:#0C101B;")
         auctionVoices.prepend(newVoiceLayout)
 
         const newVoiceUser = document.createElement("div")
@@ -285,7 +285,7 @@ async function handleComment(){
         const loadComments = document.getElementsByClassName("one-comment")[0]
 
         const newCommentLayout = document.createElement("div")
-        newCommentLayout.setAttribute("class", "bg-white p-2")
+        newCommentLayout.setAttribute("style", "background-color:#0C101B;")
         loadComments.prepend(newCommentLayout)
 
         const newCommentUser = document.createElement("div")
@@ -311,7 +311,7 @@ async function handleComment(){
 
         //댓글단 시간
         const newCommentTime = document.createElement("span")
-        newCommentTime.setAttribute("class", "date text-black-50")
+        newCommentTime.setAttribute("class", "d-block font-weight name")
 
         let time_post = new Date(comment_detail[0]['created_at'])
         let time_before = time2str(time_post)
@@ -331,19 +331,21 @@ async function handleComment(){
         //삭제 버튼
         if(comment_detail[0]['user'] == user_id['nickname'] ){
         const newDeleteBtn = document.createElement("button")
-        newDeleteBtn.setAttribute("class", "comment-delete")
+        newDeleteBtn.setAttribute("class", "s-24 text-primary icon-remove")
+        newDeleteBtn.setAttribute("style", "background-color:#0C101B; border:none;")     
         newDeleteBtn.setAttribute("id", comment_detail[0]['id'])
         newDeleteBtn.setAttribute("onclick", `deleteComment(this)`)
-        newDeleteBtn.innerText = "삭제"
         newCommentUser.append(newDeleteBtn)
+        
 
         //수정 버튼
         const newUpdateBtn = document.createElement("button")
-        newUpdateBtn.setAttribute("class", "comment-update")
+        newUpdateBtn.setAttribute("class", "s-24 text-primary icon-exchange")
+        newUpdateBtn.setAttribute("style", "background-color:#0C101B; border:none;")
         newUpdateBtn.setAttribute("id", comment_detail[0]['id'])
         newUpdateBtn.setAttribute("onclick", `updateComment(this)`)
-        newUpdateBtn.innerText = "수정"
         newCommentUser.append(newUpdateBtn)
+
     }
 }}
 
