@@ -1,6 +1,6 @@
 const token = localStorage.getItem("payload");
 let user_id = JSON.parse(token)
-const likeId = location.href.split('?')[1]
+const likeId = location.href.split('=')[1]
 console.log(likeId)
 
 
@@ -127,6 +127,7 @@ async function deletecommentView(id, comment_id){
         response_json = await response.json
         if (response.status === 200) {
             alert("댓글이 삭제되었습니다.")
+            window.location.reload()
             return response_json
         }else {
             alert(response_json["error"])
@@ -225,6 +226,7 @@ async function deletevoiceView(id, voice_id){
         response_json = await response.json
         if (response.status === 200) {
             alert("파일이 삭제되었습니다.")
+            window.location.reload()
         }else {
             alert(response_json["error"])
         }

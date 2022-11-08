@@ -22,7 +22,8 @@ async function searchParam(){
     if(decodeResult){
         const response = await fetch(`http://127.0.0.1:8000/songs/search?keyword=${decodeResult}`,{
                 headers:{
-                    'content-type':'application/json',      
+                    'content-type':'application/json',
+                    "Authorization": "Bearer " + localStorage.getItem("access")     
             },
             method:'GET',
         })

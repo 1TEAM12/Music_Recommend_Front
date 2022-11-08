@@ -85,7 +85,7 @@ async function PlaylistDetailView(playlistId){
                         </div>
                         <a id="${item.id}" onclick="PlaylistSongDelete(this)" class="nav-link mr-3 btn--searchOverlay no-ajaxy"><i class="icon-minus-1 s-24 style="color:red;"></i></a>
                         <div class="ml-auto">
-                            <a onclick="location.href='/song_detail.html?${item.id}'" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
+                            <a onclick="location.href='/song_detail.html?id=${item.id}'" class="btn btn-outline-primary btn-sm d-none d-lg-block">Song detail</a>
                         </div>
                     </div>
                 </li>
