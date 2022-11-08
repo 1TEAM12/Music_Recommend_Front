@@ -57,11 +57,10 @@ if (navigator.mediaDevices) {
                 const clipContainer = document.createElement('article')
                 const clipLabel = document.createElement('p')
                 const audio = document.createElement('audio')
-                const deleteButton = document.createElement('button')
+                
 
                 clipContainer.classList.add('clip')
                 audio.setAttribute('controls', '')
-                deleteButton.innerHTML = "삭제"
 
 
                 while (clipContainer.firstChild) {
@@ -73,7 +72,6 @@ if (navigator.mediaDevices) {
 
                 clipContainer.appendChild(audio)
                 clipContainer.appendChild(clipLabel)
-                clipContainer.appendChild(deleteButton)
                 soundClips.appendChild(clipContainer)
 
                 audio.controls = true

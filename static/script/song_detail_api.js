@@ -198,7 +198,7 @@ async function loadVoices(){
         
         //모창 등록 시간
         const newVoiceTime = document.createElement("span")
-        newVoiceTime.setAttribute("class", "date text-black-50")
+        newVoiceTime.setAttribute("class", "d-block font-weight name")
 
         let time_post = new Date(voice_detail[i]['created_at'])
         let time_before = time2str(time_post)
@@ -237,29 +237,28 @@ async function loadVoices(){
         }
 
         const newvoiceBtn = document.createElement("button")
-        newvoiceBtn.setAttribute("class", "voice-play")
+        newvoiceBtn.setAttribute("class", "s-24 text-primary icon-play")
+        newvoiceBtn.setAttribute("style", "background-color:#0C101B; border:none;")
         newvoiceBtn.setAttribute("id", voice_detail[i]['id'])
-        // newvoiceBtn.setAttribute("onclick", "loadAudio(this)")
         newvoiceBtn.onclick = ()=> loadAudio(currentAudio,this);
-        newvoiceBtn.innerText = "♬ Play Music"
         newVoiceUser.append(newvoiceBtn)
 
 
         const newstopBtn = document.createElement("button")
-        newstopBtn.setAttribute("class", "voice-play")
+        newstopBtn.setAttribute("class", "s-24 text-primary icon-pause")
+        newstopBtn.setAttribute("style", "background-color:#0C101B; border:none;")
         newstopBtn.setAttribute("id", voice_detail[i]['id'])
         newstopBtn.onclick = ()=> stopAudio(currentAudio,this);
-        newstopBtn.innerText = "♬ stop Music"
         newVoiceUser.append(newstopBtn)
 
 
         //삭제 버튼
         if(voice_detail[i]['user'] == user_id['nickname'] ){
         const newDeleteBtn = document.createElement("button")
-        newDeleteBtn.setAttribute("class", "voice-delete")
+        newDeleteBtn.setAttribute("class", "s-24 text-primary icon-remove")
+        newDeleteBtn.setAttribute("style", "background-color:#0C101B; border:none;")
         newDeleteBtn.setAttribute("id", voice_detail[i]['id'])
         newDeleteBtn.setAttribute("onclick", "deleteVoice(this)")
-        newDeleteBtn.innerText = "삭제"
         newVoiceUser.append(newDeleteBtn)
 
 
